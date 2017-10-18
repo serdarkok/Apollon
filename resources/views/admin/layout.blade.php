@@ -118,9 +118,22 @@
 
             <div class="row">
                 <div class="col-md-12">
+                    <div class="row">
 
-                    @yield('content')
+                        @yield('content')
 
+                        <div class="col-md-4">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
 

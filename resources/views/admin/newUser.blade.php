@@ -2,9 +2,7 @@
 
 @section('content')
 
-<div class="row">
-
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">Yeni Kullanıcı</div>
             <div class="panel-body">
@@ -51,7 +49,7 @@
                     <div class="form-group">
                         {{ Form::label('Yetki', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::select('permission', ['3' => 'Kullanıcı', '2' => 'Editör', '1' => 'Yönetici'], null, ['class' => 'form-control', 'placeholder' => 'Seçiniz...'])}}
+                            {{ Form::select('authority', ['3' => 'Kullanıcı', '2' => 'Editör', '1' => 'Yönetici'], null, ['class' => 'form-control', 'placeholder' => 'Seçiniz...'])}}
                         </div>
                     </div>
                     {{ csrf_field() }}
@@ -67,7 +65,5 @@
             </div>
         </div>
     </div>
-
-</div>
 
 @endsection
