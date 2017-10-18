@@ -1,0 +1,8 @@
+/vendor
+/.idea
+/bootstrap
+/tests
+/storage
+_ide_helper.php
+artisan
+.env
