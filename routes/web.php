@@ -24,16 +24,18 @@ Route::post('/login', ['as' => 'postLogin', 'uses' => 'loginController@checkLogi
 // Admin Route Group
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
-    Route::get('/', 'AdminController@getAdmin');
+    Route::get('/', ['as' => 'adminMainPage', 'uses' => 'AdminController@getAdmin']);
 
     // Users Route Group
     Route::group(['prefix' => 'users'], function(){
 
-        Route::get('/', ['as' => 'users', 'uses' => 'AdminController@getUsers']);
+        Route::get('/', ['as' => 'usersMainPage', 'uses' => 'AdminController@getUsers']);
 
         Route::get('/new', ['as' => 'getNewUser', 'uses' => 'AdminController@getNewUser']);
 
         Route::post('/new', ['as' => 'postNewUser', 'uses' => 'AdminController@postNewUser']);
+
+        Route::get('/delete/{id}', ['as' => 'userDelete', 'uses' => 'AdminController@deleteUser']);
 
 
     });

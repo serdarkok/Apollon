@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Redirect;
 use Symfony\Component\HttpFoundation\Request;
 
 class adminController extends Controller
@@ -17,7 +18,9 @@ class adminController extends Controller
 
     public function getUsers() {
 
-        return view('admin.users');
+        $_user = User::all();
+
+        return view('admin.users', ['users' => $_user]);
 
     }
 
@@ -36,7 +39,8 @@ class adminController extends Controller
             'name' => 'required',
             'surname' => 'required',
             'password' => 'required',
-            'email' => 'unique:users|required'
+            'email' => 'unique:users|required',
+            'authority' => 'required'
         ]);
 
         $_userDB = new User();
@@ -53,7 +57,20 @@ class adminController extends Controller
 
         $_userDB->create($_user);
 
-        return $_user;
+        // return $_user;
+
+        return Redirect::route('usersMainPage');
+
+    }
+
+    public function deleteUser($id)
+    {
+
+        $_user = User::findOrFail($id);
+
+        $_user->delete();
+
+        return Redirect::route('usersMainPage');
 
     }
 

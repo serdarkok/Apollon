@@ -101,7 +101,10 @@ return [
 
     'attributes' => [
         'email' => 'E-Posta',
-        'password' => 'Şifre'
+        'password' => 'Şifre',
+        'name' => 'İsim',
+        'surname' => 'Soyisim',
+        'authority' => 'Yetki'
     ],
 
 ];

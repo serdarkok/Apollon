@@ -71,7 +71,7 @@
             <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.users') }}</a>
                 <ul>
-                    <li><a href="{{ route('users') }}">{{ trans('text.admin.menu.allusers') }}</a></li>
+                    <li><a href="{{ route('usersMainPage') }}">{{ trans('text.admin.menu.allusers') }}</a></li>
                     <li><a href="{{ route('getNewUser') }}">{{ trans('text.admin.menu.newuser') }}</a></li>
                 </ul>
             </li>

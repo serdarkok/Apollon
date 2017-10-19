@@ -55,8 +55,8 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <div class="col-sm-8 col-sm-offset-2">
-                            <button class="btn btn-default" type="submit">İptal</button>
                             <button class="btn btn-primary" type="submit">Kaydet</button>
+                            <button class="btn btn-default" type="submit">İptal</button>
                         </div>
                     </div>
 

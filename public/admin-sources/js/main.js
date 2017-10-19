@@ -3,8 +3,8 @@
  	$(".ts-sidebar-menu li a").each(function () {
  		if ($(this).next().length > 0) {
  			$(this).addClass("parent");
- 		};
- 	})
+ 		}
+ 	});
  	var menux = $('.ts-sidebar-menu li a.parent');
  	$('<div class="more"><i class="fa fa-angle-down"></i></div>').insertBefore(menux);
  	$('.more').click(function () {
@@ -19,7 +19,7 @@
  	});
 	 
 	 
-	 $('#zctb').DataTable();
+	 // $('#zctb').DataTable();
 	 
 	 
 	 $("#input-43").fileinput({
