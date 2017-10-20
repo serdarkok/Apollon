@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
         Route::post('/new', ['as' => 'postNewUser', 'uses' => 'AdminController@postNewUser']);
 
+        Route::get('/new/{id}', ['as' => 'getEditUser', 'uses' => 'AdminController@getEditUser']);
+
+        Route::post('/new/{id}', ['as' => 'postEditUser', 'uses' => 'AdminController@postEditUser']);
+
         Route::get('/delete/{id}', ['as' => 'userDelete', 'uses' => 'AdminController@deleteUser']);
 
 

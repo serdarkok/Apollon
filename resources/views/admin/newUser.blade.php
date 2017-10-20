@@ -7,7 +7,7 @@
             <div class="panel-heading">Yeni Kullanıcı</div>
             <div class="panel-body">
                 @if(isset($user))
-                    {{ Form::model($user, ['route' => ['User_Post', $user->id], 'class' => 'form-horizontal', 'id' => 'edit-user']) }}
+                    {{ Form::model($user, ['route' => ['postEditUser', $user->id], 'class' => 'form-horizontal', 'id' => 'edit-user']) }}
                 @else
                     {{ Form::open(['class' => 'form-horizontal', 'id' => 'new-user']) }}
                 @endif
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         {{ Form::label('Telefon', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Telefon', 'maxlength' => '14']) }}
+                            {{ Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Telefon', 'maxlength' => '14', 'id' => 'phone']) }}
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <div class="col-sm-8 col-sm-offset-2">
                             <button class="btn btn-primary" type="submit">Kaydet</button>
-                            <button class="btn btn-default" type="submit">İptal</button>
+                            <a href="{{ route('usersMainPage') }}" class="btn btn-default">İptal</a>
                         </div>
                     </div>
 
@@ -65,5 +65,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#phone').formatter({
+            'pattern': '{{999}}-{{999}}-{{999}}-{{9999}}',
+            'persistent': true
+        });
+    </script>
 
 @endsection

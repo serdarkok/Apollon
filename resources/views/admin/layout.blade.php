@@ -40,6 +40,7 @@
     <script src="/js/app.js"></script>
     <script src="/admin-sources/js/bootstrap-select.min.js"></script>
     <script src="/admin-sources/js/jquery.dataTables.min.js"></script>
+    <script src="/js/jquery.formatter.min.js"></script>
 </head>
 
 <body>
