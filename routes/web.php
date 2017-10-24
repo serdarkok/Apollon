@@ -47,6 +47,26 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
         Route::get('/', ['as' => 'settingsMainPage', 'uses' => 'AdminController@getSettings']);
 
+        Route::get('/edit/{id}', ['as' => 'getEditSettings', 'uses' => 'AdminController@getEditSettings']);
+
+        Route::post('/edit/{id}', ['as' => 'postEditSettings', 'uses' => 'AdminController@postEditSettings']);
+
+    });
+
+    Route::group(['prefix' => 'categories'], function (){
+
+        Route::get('/', ['as' => 'categoriesMainPage', 'uses' => 'AdminController@getCategories']);
+
+        Route::get('/new', ['as' => 'getNewCategory', 'uses' => 'AdminController@getNewCategory']);
+
+        Route::post('/new', ['as' => 'postNewCategory', 'uses' => 'AdminController@postNewCategory']);
+
+        Route::get('/new/{id}', ['as' => 'getEditCategory', 'uses' => 'AdminController@getEditCategory']);
+
+        Route::post('/new/{id}', ['as' => 'postEditCategory', 'uses' => 'AdminController@postEditCategory']);
+
+        Route::get('/delete/{id}', ['as' => 'categoryDelete', 'uses' => 'AdminController@deleteCategory']);
+
     });
 
 });

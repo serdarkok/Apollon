@@ -104,7 +104,15 @@ return [
         'password' => 'Şifre',
         'name' => 'İsim',
         'surname' => 'Soyisim',
-        'authority' => 'Yetki'
+        'authority' => 'Yetki',
+        'title' => 'Site Başlığı',
+        'description' => 'Açıklama',
+        'keywords' => 'Anahtar Kelimeler',
+        'language' => 'Site Dili',
+        'category_name' => 'Kategori Adı',
+        'category_slug' => 'Kategori Kısa Adı',
+        'category_lang_id' => 'Dil'
+
     ],
 
 ];

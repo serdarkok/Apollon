@@ -33,7 +33,7 @@
                             <td>{{ $bilgi->title }}</td>
                             <td>{{ $bilgi->description }}</td>
                             <td>{{ $bilgi->keywords }}</td>
-                            <td class="text-center"><a href="settings/new/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
+                            <td class="text-center"><a href="settings/edit/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
                         </tr>
                     @endforeach
 

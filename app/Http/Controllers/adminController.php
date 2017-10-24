@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
+use App\Categories_con;
+use App\Language;
 use App\Setting;
 use App\User;
 use Illuminate\Validation\Rule;
@@ -120,6 +123,96 @@ class adminController extends Controller
          $_setting = Setting::all();
 
         return view('admin.settings', ['setting' => $_setting]);
+
+    }
+
+    public function getEditSettings($id)
+    {
+        $_setting = Setting::findOrFail($id);
+
+        return view('admin.newSettings', ['setting' => $_setting]);
+    }
+
+    public function postEditSettings(Request $request, $id)
+    {
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'keywords' => 'required',
+            'language' => 'required'
+        ]);
+
+        $_settings = $request->except(['_token']);
+
+        $_settingsDB = Setting::findOrFail($id);
+
+        $_settingsDB->update($_settings);
+
+        return Redirect::route('settingsMainPage');
+
+    }
+
+    // Categories "Kategoriler"
+
+    public function getCategories()
+    {
+
+        $_categories = Categories::all();
+
+        return view('admin.categories', ['categories' => $_categories]);
+
+    }
+
+    public function getNewCategory()
+    {
+
+        $_categories = Categories_con::pluck('category_name', 'id');
+
+        $_language = Language::pluck('language_name', 'id');
+
+        return view('admin.newCategory', ['categories' => $_categories, 'language' => $_language]);
+
+    }
+
+    public function postNewCategory(Request $r)
+    {
+
+        $deneme = $r->all();
+
+        $_category = $r->only('child_id');
+
+        $_categoryDB = new Categories();
+
+        $_categoryID = $_categoryDB->create($_category)->id;
+
+        $_category_conDB  = new Categories_con();
+
+        $_category_conDB->create();
+
+
+        $r->validate([
+           'category_name'      => 'required',
+           'category_slug'      => 'required',
+           'category_lang_id'   => 'required'
+        ]);
+
+
+
+    }
+
+    public function getEditCategory()
+    {
+
+    }
+
+    public function postEditCategory()
+    {
+
+    }
+
+    public function deleteCategory()
+    {
 
     }
 

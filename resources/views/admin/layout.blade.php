@@ -31,6 +31,8 @@
     <!-- Custom Stye -->
     <link rel="stylesheet" href="/admin-sources/css/custom.css">
 
+    @yield('header')
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -77,7 +79,13 @@
                     <li><a href="{{ route('getNewUser') }}">{{ trans('text.admin.menu.newuser') }}</a></li>
                 </ul>
             </li>
-            <li><a href="tables.html"><i class="fa fa-table"></i> Tables</a></li>
+            <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.categories') }}</a>
+                <ul>
+                    <li><a href="{{ route('categoriesMainPage') }}">{{ trans('text.admin.menu.allcategories') }}</a></li>
+                    <li><a href="{{ route('getNewCategory') }}">{{ trans('text.admin.menu.newcategory') }}</a></li>
+                </ul>
+            </li>
+
             <li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
             <li><a href="charts.html"><i class="fa fa-pie-chart"></i> Charts</a></li>
             <li><a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown</a>
@@ -138,10 +146,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
+@yield('footer')
 
 <!-- Loading Scripts -->
 <script src="/admin-sources/js/dataTables.bootstrap.min.js"></script>
