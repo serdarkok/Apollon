@@ -36,7 +36,7 @@
                             <td>{{ $bilgi->email }}</td>
                             <td>{{ $bilgi->phone }}</td>
                             <td class="text-center"><a href="users/new/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
-                            <td class="text-center"><a href="users/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
+                            <td class="text-center" id="confirm"><a href="users/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
                         </tr>
                     @endforeach
 
@@ -46,5 +46,16 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $('#confirm a').click(function(event) {
+            event.preventDefault();
+            var r=confirm("Geri dönüşü olmayacak şekilde silinecektir, devam etmek istediğinize emin misiniz?");
+            if (r==true)   {
+                window.location = $(this).attr('href');
+            }
+
+        });
+    </script>
 
 @endsection

@@ -70,6 +70,7 @@
             </li>
             <li class="ts-label">Main</li>
             <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('settingsMainPage') }}"><i class="fa fa-table"></i> Site Ayarları</a></li>
             <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.users') }}</a>
                 <ul>
                     <li><a href="{{ route('usersMainPage') }}">{{ trans('text.admin.menu.allusers') }}</a></li>

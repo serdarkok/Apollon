@@ -67,9 +67,9 @@
     </div>
 
     <script>
-        $('#phone').formatter({
-            'pattern': '{{999}}-{{999}}-{{999}}-{{9999}}',
-            'persistent': true
+
+        $(document).ready(function () {
+            $('#phone').mask("99/99/9999", {placeholder: 'MM/DD/YYYY' });
         });
     </script>
 

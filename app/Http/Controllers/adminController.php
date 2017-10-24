@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Setting;
 use App\User;
 use Illuminate\Validation\Rule;
 use Redirect;
@@ -108,6 +109,17 @@ class adminController extends Controller
         $_user->delete();
 
         return Redirect::route('usersMainPage');
+
+    }
+
+
+    // Settings "Site Ayarları"
+
+    public function getSettings() {
+
+         $_setting = Setting::all();
+
+        return view('admin.settings', ['setting' => $_setting]);
 
     }
 
