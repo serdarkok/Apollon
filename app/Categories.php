@@ -17,6 +17,16 @@ class Categories extends Model
         {
             $this->attributes['child_id'] = 0;
         }
+        else
+        {
+            $this->attributes['child_id'] = $child_id;
+        }
 
+    }
+
+    public function _content()
+    {
+
+        return $this->hasOne('App\Categories_con', 'cat_id', 'id');
     }
 }

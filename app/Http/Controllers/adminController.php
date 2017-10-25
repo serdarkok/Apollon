@@ -78,7 +78,6 @@ class adminController extends Controller
 
     public function postEditUser(Request $request, $id)
     {
-
         // Eğer şifre alanına herhangi birşey girilmemişse, şifrede update yapmayacak
         if ($request->password)
         {
@@ -88,48 +87,34 @@ class adminController extends Controller
         {
             $_user = $request->except(['password']);
         }
-
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($id)],
             'authority' => 'required'
         ]);
-
         $_userDB = User::findOrFail($id);
-
         $_userDB->update($_user);
-
         return Redirect::route('usersMainPage');
-
     }
 
     public function deleteUser($id)
     {
-
         $_user = User::findOrFail($id);
-
         $_user->delete();
-
         return Redirect::route('usersMainPage');
-
     }
 
 
     // Settings "Site Ayarları"
-
     public function getSettings() {
-
          $_setting = Setting::all();
-
         return view('admin.settings', ['setting' => $_setting]);
-
     }
 
     public function getEditSettings($id)
     {
         $_setting = Setting::findOrFail($id);
-
         return view('admin.newSettings', ['setting' => $_setting]);
     }
 
@@ -167,7 +152,7 @@ class adminController extends Controller
     public function getNewCategory()
     {
 
-        $_categories = Categories_con::pluck('category_name', 'id');
+        $_categories = Categories_con::pluck('category_name', 'cat_id');
 
         $_language = Language::pluck('language_name', 'id');
 
@@ -177,28 +162,27 @@ class adminController extends Controller
 
     public function postNewCategory(Request $r)
     {
-
-        $deneme = $r->all();
-
+        $r->validate([
+            'category_name'      => 'required|unique:categories_cons,category_name',
+            'category_slug'      => 'required',
+            'category_lang_id'   => 'required'
+        ]);
         $_category = $r->only('child_id');
-
         $_categoryDB = new Categories();
-
         $_categoryID = $_categoryDB->create($_category)->id;
-
         $_category_conDB  = new Categories_con();
 
-        $_category_conDB->create();
+        // Sistemde kayıtlı kaç tane dil varsa o dile göre kategori eklemesi yapıyor.
+        $_language = Language::all();
+        foreach ($_language as $item) {
+            $_category_conDB->cat_id = $_categoryID;
+            $_category_conDB->category_name = $r->category_name;
+            $_category_conDB->category_slug = str_slug($r->category_slug);
+            $_category_conDB->category_lang_id =  $item->id;
+            $_category_conDB->save();
+        }
 
-
-        $r->validate([
-           'category_name'      => 'required',
-           'category_slug'      => 'required',
-           'category_lang_id'   => 'required'
-        ]);
-
-
-
+        return Redirect::route('categoriesMainPage');
     }
 
     public function getEditCategory()
@@ -211,9 +195,14 @@ class adminController extends Controller
 
     }
 
-    public function deleteCategory()
+    public function deleteCategory($id)
     {
-
+        $_category = Categories::findOrFail($id);
+        $_category->delete();
+        $_category_con = Categories_con::where('cat_id', '=', $id)->get();
+        return $_category_con;
+        $_category_con->delete();
+        return Redirect::route('categoriesMainPage');
     }
 
 }

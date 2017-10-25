@@ -30,10 +30,10 @@
                     @foreach($categories as $bilgi)
                         <tr>
                             <td>{{ $bilgi->id }}</td>
-                            <td>{{ $bilgi->name }}</td>
-                            <td>{{ $bilgi->slug }}</td>
-                            <td class="text-center"><a href="users/new/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
-                            <td class="text-center" id="confirm"><a href="users/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
+                            <td>{{ $bilgi->_content['category_name'] }}</td>
+                            <td>{{ $bilgi->_content['category_slug'] }}</td>
+                            <td class="text-center"><a href="categories/new/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
+                            <td class="text-center" id="confirm"><a href="categories/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
                         </tr>
                     @endforeach
 

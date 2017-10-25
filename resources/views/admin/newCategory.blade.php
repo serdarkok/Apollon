@@ -35,7 +35,7 @@
                     <div class="form-group">
                         {{ Form::label('Dil', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::select('language', $language , null, ['class' => 'form-control', 'placeholder' => 'Seçiniz...'])}}
+                            {{ Form::select('category_lang_id', $language , null, ['class' => 'form-control', 'placeholder' => 'Seçiniz...'])}}
                         </div>
                     </div>
 
