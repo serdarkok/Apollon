@@ -35,6 +35,15 @@
                             <td class="text-center"><a href="categories/new/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
                             <td class="text-center" id="confirm"><a href="categories/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
                         </tr>
+                        @foreach($bilgi->child_categories as $item)
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td><i class="fa fa-long-arrow-right"></i> {{ $item->_content['category_name'] }}</td>
+                                <td>{{ $item->_content['category_slug'] }}</td>
+                                <td class="text-center"><a href="categories/new/{{ $item->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
+                                <td class="text-center" id="confirm"><a href="categories/delete/{{ $item->id }}" class="btn btn-danger btn-xs">Sil</a></td>
+                            </tr>
+                        @endforeach
                     @endforeach
 
                     </tbody>

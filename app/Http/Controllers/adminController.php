@@ -142,22 +142,28 @@ class adminController extends Controller
 
     public function getCategories()
     {
-
-        $_categories = Categories::all();
+        // Sadece child_id'si 0 olanları listeledik. Ana kategoriler
+        $_categories = Categories::select('id','child_id')->where('child_id','=','0')->get();
+        // Kategorileri loop'a soktuk, alt kategorileri child_categories'e ekledik
+        foreach ($_categories as $item)
+        {
+            $_child_categories = Categories::where('child_id','=', $item->id)->get();
+            $item->child_categories = $_child_categories;
+        }
 
         return view('admin.categories', ['categories' => $_categories]);
-
     }
 
     public function getNewCategory()
     {
+        $_categories = Categories::select('id')->where('child_id','=','0')->get();
 
-        $_categories = Categories_con::pluck('category_name', 'cat_id');
-
+        foreach ($_categories as $item)
+        {
+            $_categories = Categories_con::where('child_id', '0')->pluck('category_name', 'cat_id');
+        }
         $_language = Language::pluck('language_name', 'id');
-
         return view('admin.newCategory', ['categories' => $_categories, 'language' => $_language]);
-
     }
 
     public function postNewCategory(Request $r)
@@ -181,7 +187,6 @@ class adminController extends Controller
             $_category_conDB->category_lang_id =  $item->id;
             $_category_conDB->save();
         }
-
         return Redirect::route('categoriesMainPage');
     }
 
@@ -197,11 +202,10 @@ class adminController extends Controller
 
     public function deleteCategory($id)
     {
+        // Önce ana kategoriyi ve ana kategoriye bağlı olan alt kategorileri siler
         $_category = Categories::findOrFail($id);
         $_category->delete();
-        $_category_con = Categories_con::where('cat_id', '=', $id)->get();
-        return $_category_con;
-        $_category_con->delete();
+        Categories_con::where('cat_id', '=', $id)->delete();
         return Redirect::route('categoriesMainPage');
     }
 
