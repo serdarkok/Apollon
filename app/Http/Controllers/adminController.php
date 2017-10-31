@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Categories;
 use App\Categories_con;
 use App\Language;
+use App\Menu;
+use App\Menu_con;
 use App\Setting;
 use App\User;
 use Illuminate\Validation\Rule;
@@ -208,5 +211,101 @@ class adminController extends Controller
         Categories_con::where('cat_id', '=', $id)->delete();
         return Redirect::route('categoriesMainPage');
     }
+
+    // Menüler -- Menus
+
+    public function getMenus()
+    {
+        // Sadece menu_child_id'si 0 olanları listeledik. Ana kategoriler
+        $_menus = Menu::select('id','menu_child_id')->where('menu_child_id','=','0')->get();
+        // Menüleri loop'a soktuk, alt menüleri child_menus'e ekledik
+        foreach ($_menus as $item)
+        {
+            $_child_menus = Menu::where('menu_child_id','=', $item->id)->get();
+            $item->child_menus = $_child_menus;
+        }
+
+        return view('admin.menus', ['menus' => $_menus]);
+    }
+
+    public function getNewMenu()
+    {
+        $_language = Language::pluck('language_name', 'id');
+        $_menus = Menu::all();
+        // return $_last_order;
+        return view('admin.newMenu', ['menus' => $_menus, 'language' => $_language]);
+
+    }
+
+    public function postNewMenu(Request $r)
+    {
+        $_menu = $r->only('menu_child_id', 'menu_order');
+        $_menuDB = new Menu();
+        $_menuID = $_menuDB->create($_menu)->id;
+        $_menu_conDB  = new Menu_con();
+
+        // Sistemde kayıtlı kaç tane dil varsa o dile göre menü eklemesi yapıyor.
+        $_language = Language::all();
+        foreach ($_language as $item) {
+            $_menu_conDB->menu_id = $_menuID;
+            $_menu_conDB->menu_name = $r->menu_name;
+            $_menu_conDB->menu_slug = str_slug($r->menu_slug);
+            $_menu_conDB->menu_link = $r->menu_link;
+            $_menu_conDB->menu_lang_id =  $item->id;
+            $_menu_conDB->save();
+        }
+        return Redirect::route('menusMainPage');
+
+    }
+
+    public function getEditMenu()
+    {
+
+    }
+
+    public function postEditMenu()
+    {
+
+    }
+
+    public function deleteMenu()
+    {
+
+    }
+
+    // Yazılar - Articles
+
+    public function getArticles()
+    {
+
+    }
+
+    public function getNewArticle()
+    {
+        $_categories = Categories::select('id')->where('child_id','=','0')->get();
+
+        foreach ($_categories as $item)
+        {
+            $_categories = Categories_con::where('child_id', '0')->pluck('category_name', 'cat_id');
+        }
+
+        $_languages = Language::pluck('language_name', 'id');
+
+        return view('admin.newArticle', ['categories' => $_categories, 'languages' => $_languages]);
+    }
+
+    public function postNewArticle(Request $r)
+    {
+        $_article = $r->only('cat_id', 'end_date', 'home_page');
+        return $_article;
+
+        $art_id = Article::create($_article)->id;
+
+
+        $categoryCON = new Categories_con();
+        $categoryCON->create($_article, $art_id );
+
+    }
+
 
 }

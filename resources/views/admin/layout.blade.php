@@ -86,6 +86,20 @@
                 </ul>
             </li>
 
+            <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.articles') }}</a>
+                <ul>
+                    <li><a href="{{ route('articlesMainPage') }}">{{ trans('text.admin.menu.allarticles') }}</a></li>
+                    <li><a href="{{ route('getNewArticle') }}">{{ trans('text.admin.menu.newarticle') }}</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.menus') }}</a>
+                <ul>
+                    <li><a href="{{ route('menusMainPage') }}">{{ trans('text.admin.menu.allmenus') }}</a></li>
+                    <li><a href="{{ route('getNewMenu') }}">{{ trans('text.admin.menu.newmenu') }}</a></li>
+                </ul>
+            </li>
+
             <li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
             <li><a href="charts.html"><i class="fa fa-pie-chart"></i> Charts</a></li>
             <li><a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown</a>
@@ -149,16 +163,13 @@
         </div>
     </div>
 </div>
-
-@yield('footer')
-
 <!-- Loading Scripts -->
 <script src="/admin-sources/js/dataTables.bootstrap.min.js"></script>
 <script src="/admin-sources/js/Chart.min.js"></script>
 <script src="/admin-sources/js/fileinput.js"></script>
 <script src="/admin-sources/js/chartData.js"></script>
 <script src="/admin-sources/js/main.js"></script>
-
+@yield('footer')
 </body>
 
 </html>

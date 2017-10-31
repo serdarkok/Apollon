@@ -1,9 +1,7 @@
 @extends('admin.layout')
 
 @section('header')
-
     <link rel="stylesheet" href="/admin-sources/css/jquery.tagsinput.css">
-
 @endsection
 
 @section('content')
@@ -111,11 +109,8 @@
 @section('footer')
 
     <script src="/admin-sources/js/jquery.tagsinput.js"></script>
-
     <script>
-
-        $('#keywords').tagsInput();
-
+        $('#keywords').tagsInput();""
         $(document).ready(function () {
             $('#phone').mask("99/99/9999", {placeholder: 'MM/DD/YYYY' });
         });
