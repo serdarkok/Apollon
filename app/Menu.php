@@ -29,6 +29,23 @@ class Menu extends Model
             $this->attributes['menu_child_id'] = $menu_child_id;
         }
     }
+    public function setMenuOrderAttribute($value) {
+
+        if ($value == null) {
+            $_ = Menu::select('menu_order')->orderBy('menu_order', 'DESC')->first();
+            if ($_) {
+                $this->attributes['menu_order'] = $_->menu_order + 1;
+            }
+            else {
+                $this->attributes['menu_order'] = '1';
+            }
+
+        }
+        else {
+                $this->attributes['menu_order'] = $value;
+        }
+
+    }
 
     public function _content()
     {

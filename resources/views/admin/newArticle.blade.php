@@ -2,8 +2,8 @@
 
 @section('header')
     <link rel="stylesheet" href="/admin-sources/css/jquery.tagsinput.css">
-    <link rel="stylesheet" href="/admin-sources/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="/admin-sources/css/bootstrap-datepicker.standalone.min.css">
+    <link rel="stylesheet" href="/admin-sources/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="/admin-sources/css/bootstrap-datepicker3.standalone.min.css">
 @endsection
 
 @section('content')
@@ -20,21 +20,21 @@
                     <div class="form-group">
                         {{ Form::label('Yazı Adı', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::text('art_name', null, ['class' => 'form-control', 'placeholder' => 'Yazı Adı']) }}
+                            {{ Form::text('art_name', null, ['class' => 'form-control', 'placeholder' => 'Yazı Adı', 'id' => 'art_name']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         {{ Form::label('Yazı Kısa Adı', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::text('art_slug', null, ['class' => 'form-control', 'placeholder' => 'Yazı Kısa Adı']) }}
+                            {{ Form::text('art_slug', null, ['class' => 'form-control', 'placeholder' => 'Yazı Kısa Adı', 'id' => 'art_slug']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Yazı Resmi</label>
                         <div class="col-sm-10">
-                            {{ Form::file('pdf_link', ['id' => 'input-44']) }}
+                            {{ Form::file('art_image', ['id' => 'input-44']) }}
                             <div id="errorBlock43" class="help-block"></div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <div class="form-group">
                         {{ Form::label('Yazı İçeriği', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::textarea('art_content', null, ['class' => 'form-control']) }}
+                            {{ Form::textarea('art_content', null, ['class' => 'form-control', 'id' => 'art_content']) }}
                         </div>
                     </div>
 
@@ -110,7 +110,46 @@
                             </div>
                         </div>
                     </div>
+                    <hr/>
 
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="checkbox checkbox-primary">
+                                {{ Form::hidden('slider', 0) }}
+                                {{ Form::checkbox('slider', '1', null, ['id' => 'slider']) }}
+                                <label for="slider">Slaytta Görünsün</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="hidden">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Slayt Başlangıç Tarihi</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                {{ Form::text('slider_start_date', null, ['class' => 'form-control', 'id' => 'slider_start_date']) }}
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Slayt Bitiş Tarihi</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                {{ Form::text('slider_end_date', null, ['class' => 'form-control', 'id' => 'slider_end_date']) }}
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('Slayt Linki', null, ['class' => 'col-sm-2 control-label']) }}
+                        <div class="col-sm-10">
+                            {{ Form::text('slider_link', null, ['class' => 'form-control', 'placeholder' => 'Slayt Linki', 'id' => 'slider_link']) }}
+                            <span class="help-block m-b-none">Eğer boş bırakılırsa slayta basılınca herhangi bir yere gitmez.</span>
+                        </div>
+                    </div>
+                    </div>
                     {{ csrf_field() }}
                     <div class="form-group">
                         <div class="col-sm-8 col-sm-offset-2">
@@ -134,6 +173,8 @@
 @endsection
 
 @section('footer')
+    <script type="text/javascript" src="/admin-sources/js/ckeditor.js"></script>
+    <script type="text/javascript" src="/admin-sources/js/config.js"></script>
     <script src="/admin-sources/js/jquery.tagsinput.js"></script>
     <script src="/admin-sources/js/bootstrap-datepicker.min.js"></script>
     <script src="/admin-sources/js/locales/bootstrap-datepicker.tr.min.js"></script>
@@ -153,5 +194,41 @@
         language: "tr",
         autoclose: true
     });
+
+    $('#slider_end_date').datepicker({
+        format: "dd.mm.yyyy",
+        orientation: "top auto",
+        todayBtn: "linked",
+        language: "tr",
+        autoclose: true
+    });
+
+    $('#slider_start_date').datepicker({
+        format: "dd.mm.yyyy",
+        orientation: "top auto",
+        todayBtn: "linked",
+        language: "tr",
+        autoclose: true
+    });
+    CKEDITOR.replace( 'art_content', {
+        height: 320
+    });
+
+
+    $('#slider').click(function() {
+        $("#hidden").toggle("fast", function () {
+        });
+    });
+    $(document).ready( function(){
+        $("#hidden").css('display','none');
+        if ($('#slider').is(':checked'))
+        {
+            $("#hidden").css('display','block');
+        }
+    });
+
+    $('#art_name').blur(function () {
+        $('#art_slug').val(string_to_slug($('#art_name').val()));
+    })
 </script>
 @endsection

@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Articles_con;
 use App\Categories;
 use App\Categories_con;
 use App\Language;
 use App\Menu;
 use App\Menu_con;
 use App\Setting;
+use App\Slider;
 use App\User;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rule;
+use Intervention\Image\Facades\Image;
 use Redirect;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -160,13 +165,23 @@ class adminController extends Controller
     public function getNewCategory()
     {
         $_categories = Categories::select('id')->where('child_id','=','0')->get();
-
-        foreach ($_categories as $item)
+        if (count($_categories) > 0) {
+            $_2 = [];
+            foreach ($_categories as $item) {
+                $_1[] = Categories_con::where('cat_id', $item->id)->pluck('category_name', 'id');
+            }
+            foreach ($_1 as $item) {
+                foreach ($item as $key => $value) {
+                    $_2 += [$key => $value];
+                }
+            }
+        }
+        else
         {
-            $_categories = Categories_con::where('child_id', '0')->pluck('category_name', 'cat_id');
+            $_2 = [];
         }
         $_language = Language::pluck('language_name', 'id');
-        return view('admin.newCategory', ['categories' => $_categories, 'language' => $_language]);
+        return view('admin.newCategory', ['categories' => $_2, 'language' => $_language]);
     }
 
     public function postNewCategory(Request $r)
@@ -217,14 +232,13 @@ class adminController extends Controller
     public function getMenus()
     {
         // Sadece menu_child_id'si 0 olanları listeledik. Ana kategoriler
-        $_menus = Menu::select('id','menu_child_id')->where('menu_child_id','=','0')->get();
+        $_menus = Menu::select('id','menu_child_id', 'status')->where('menu_child_id','=','0')->get();
         // Menüleri loop'a soktuk, alt menüleri child_menus'e ekledik
         foreach ($_menus as $item)
         {
             $_child_menus = Menu::where('menu_child_id','=', $item->id)->get();
             $item->child_menus = $_child_menus;
         }
-
         return view('admin.menus', ['menus' => $_menus]);
     }
 
@@ -232,14 +246,34 @@ class adminController extends Controller
     {
         $_language = Language::pluck('language_name', 'id');
         $_menus = Menu::all();
+
+        if (count($_menus) > 0)
+        {
+            $_2 = [];
+            foreach ($_menus as $item)
+            {
+                $_1[] = Menu_con::where('menu_id', $item->id)->pluck('menu_name','id');
+            }
+
+            foreach ($_1 as $item) {
+                foreach ($item as $key => $value) {
+                    $_2 += [$key => $value];
+                }
+            }
+        }
+        else
+        {
+            $_2 = [];
+        }
+
         // return $_last_order;
-        return view('admin.newMenu', ['menus' => $_menus, 'language' => $_language]);
+        return view('admin.newMenu', ['menus' => $_2, 'language' => $_language]);
 
     }
 
     public function postNewMenu(Request $r)
     {
-        $_menu = $r->only('menu_child_id', 'menu_order');
+        $_menu = $r->only('menu_child_id', 'menu_order', 'status');
         $_menuDB = new Menu();
         $_menuID = $_menuDB->create($_menu)->id;
         $_menu_conDB  = new Menu_con();
@@ -255,16 +289,60 @@ class adminController extends Controller
             $_menu_conDB->save();
         }
         return Redirect::route('menusMainPage');
-
     }
 
-    public function getEditMenu()
+    public function getEditMenu($id)
     {
+        $_language = Language::pluck('language_name', 'id');
+        $_menus = Menu::all();
 
+        if (count($_menus) > 0)
+        {
+            $_2 = [];
+            foreach ($_menus as $item)
+            {
+                $_1[] = Menu_con::where('menu_id', $item->id)->pluck('menu_name','id');
+            }
+
+            foreach ($_1 as $item) {
+                foreach ($item as $key => $value) {
+                    $_2 += [$key => $value];
+                }
+            }
+        }
+        else
+        {
+            $_2 = [];
+        }
+
+        $_ = Menu::findOrFail($id);
+        $__ = Menu_con::where('menu_id', $_->id)->first();
+        $_['menu_name'] = $__->menu_name;
+        $_['menu_slug'] = $__->menu_slug;
+        $_['menu_link'] = $__->menu_link;
+        $_['menu_link'] = $__->menu_link;
+        $_['menu_lang_id'] = $__->menu_lang_id;
+        return view('admin.newMenu', ['menu' => $_, 'menus' => $_2, 'language' => $_language]);
     }
 
-    public function postEditMenu()
+    public function postEditMenu(Request $r, $id)
     {
+        $_menu = $r->only('menu_child_id', 'menu_order', 'status');
+        Menu::findOrFail($id)->update($_menu);
+
+        $_menu_conDB  = Menu_con::where('menu_id', $id)->first();
+
+        // Sistemde kayıtlı kaç tane dil varsa o dile göre menü eklemesi yapıyor.
+        $_language = Language::all();
+        foreach ($_language as $item) {
+            $_menu_conDB->menu_id = $id;
+            $_menu_conDB->menu_name = $r->menu_name;
+            $_menu_conDB->menu_slug = str_slug($r->menu_slug);
+            $_menu_conDB->menu_link = $r->menu_link;
+            $_menu_conDB->menu_lang_id =  $item->id;
+            $_menu_conDB->save();
+        }
+        return Redirect::route('menusMainPage');
 
     }
 
@@ -277,35 +355,156 @@ class adminController extends Controller
 
     public function getArticles()
     {
-
+        $_ = Article::all();
+        return view('admin.articles', ['articles' => $_]);
     }
 
     public function getNewArticle()
     {
-        $_categories = Categories::select('id')->where('child_id','=','0')->get();
 
-        foreach ($_categories as $item)
-        {
-            $_categories = Categories_con::where('child_id', '0')->pluck('category_name', 'cat_id');
-        }
+         $_categories = Categories::select('id')->get();
+
+         // Eğer herhangi bir kategori yoksa, 0 Kategorisiz array'i oluşturur.
+         if (count($_categories) > 0)
+         {
+             $_2 = [];
+             foreach ($_categories as $item)
+             {
+                 $_1[] = Categories_con::where('cat_id', $item->id)->pluck('category_name','id');
+             }
+
+             foreach ($_1 as $item) {
+                 foreach ($item as $key => $value) {
+                     $_2 += [$key => $value];
+                 }
+             }
+         }
+         else
+         {
+             $_2 = ['0' => 'Kategorisiz'];
+         }
 
         $_languages = Language::pluck('language_name', 'id');
-
-        return view('admin.newArticle', ['categories' => $_categories, 'languages' => $_languages]);
+        return view('admin.newArticle', ['categories' => $_2, 'languages' => $_languages]);
     }
 
-    public function postNewArticle(Request $r)
+    // Slider Order Bulma
+    public function SliderOrder()
     {
-        $_article = $r->only('cat_id', 'end_date', 'home_page');
-        return $_article;
+        $_slider = Slider::select('slider_order')->orderBy('slider_order', 'DESC')->first();
+        if ($_slider) {
+            return $_slider->slider_order + 1;
+        }
+        else {
+            return '1';
+        }
+    }
 
-        $art_id = Article::create($_article)->id;
+    public function postNewArticle(Request $r) {
 
+        $_article_short = $r->only('cat_id', 'end_date', 'slider', 'home_page', 'status');
+        $art_id = Article::create($_article_short)->id;
+        if ($r->hasFile('art_image'))
+        {
+            $dosya = $r->file('art_image');
+            $file_name = $art_id . "_" . rand(11111,9999999) . "." . mb_strtolower($dosya->getClientOriginalExtension());
+            $dosya = Image::make($r->file('art_image'));
+            // Buradaki 400 px ebatlarında genişliktir. Genişlik 400'den küçükse bu işlen yapılmaz. Yükseklikte genişliğe oranla küçülür.
+            $dosya->widen(400, function ($constraint) {
+                $constraint->upsize();
+            })->save('uploads/images/'.$file_name, 80);
+            // Memory'den silinir.
+            $dosya->destroy();
+        }
+        $r->request->add(['art_id' => $art_id]);
+        // art_image file_name ismini alıyor.
+        $_data = $r->all();
+        $_data['art_image'] = $file_name;
+        Articles_con::create($_data);
 
-        $categoryCON = new Categories_con();
-        $categoryCON->create($_article, $art_id );
+        // Yazı slayt olacaksa aşağıdaki işlem yapılır.
+        if($r->slider) {
+            $r->request->add(['slider_order' => $this->SliderOrder()]);
+            $_slider = $r->only('slider_start_date', 'slider_end_date', 'slider_order', 'art_id', 'slider_link');
+            Slider::create($_slider);
+        }
+        // return Redirect::route('articlesMainPage');
+    }
 
+    public function deleteArticle($id) {
+        $_ = Article::findOrFail($id);
+        $_->delete();
+        $_art_image = Articles_con::select('art_image')->where('art_id','=', $id)->first();
+        // İlgili yazıya ait resmi de siler.
+        //
+        Articles_con::where('art_id','=', $id)->delete();
+        // Article'a ait kayıtlı resim varsa onu da siler
+        File::delete('uploads/images/'.$_art_image->art_image);
+        // O yazıya ait slayt varsa onu da siler.
+        Slider::where('art_id','=', $id)->delete();
+        return Redirect::route('articlesMainPage');
     }
 
 
+    // SLIDES
+    public function Slider_sort()
+    {
+        $_sort = Slider::orderBy('slider_order', 'ASC')->get();
+        return $_sort;
+        $i = 0;
+        foreach ($_sort as $item) {
+            $i++;
+            $item->slider_order = $i;
+            $item->save();
+        }
+    }
+    public function getSlides()
+    {
+        $this->Slider_sort();
+        $_ = Slider::orderBy('slider_order', 'ASC')->get();
+        return view('admin.slides', ['slides' => $_, 'total' => ($this->SliderOrder() - 1)]);
+    }
+
+    public function SliderUp($id)
+    {
+        $_up = Slider::where('id','=',$id)->get();
+        foreach ($_up as $item) {
+            $order = $item->slider_order - 1;
+            $old = Slider::where('slider_order', '=', $order)->get();
+            foreach ($old as $subitem) {
+                $subitem->slider_order = $order + 1;
+                $subitem->save();
+            }
+        }
+        foreach ($_up as $item) {
+            $item->slider_order = $item->slider_order - 1;
+            $item->save();
+        }
+        return Redirect::back();
+    }
+
+    public function SliderDown($id)
+    {
+        $_up = Slider::where('id','=',$id)->get();
+        foreach ($_up as $item) {
+            $order = $item->slider_order + 1;
+            $old = Slider::where('slider_order', '=', $order)->get();
+            foreach ($old as $subitem) {
+                $subitem->slider_order = $order - 1;
+                $subitem->save();
+            }
+        }
+        foreach ($_up as $item) {
+            $item->slider_order = $item->slider_order + 1;
+            $item->save();
+        }
+        return Redirect::back();
+    }
+
+    public function SlideRemove($id)
+    {
+        Article::findOrFail($id)->update(['slider' => '0']);
+        Slider::where('art_id', $id)->delete();
+        return Redirect::back();
+    }
 }

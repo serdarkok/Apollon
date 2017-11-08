@@ -71,5 +71,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::get('/delete/{id}', ['as' => 'articleDelete', 'uses' => 'AdminController@deleteArticle']);
     });
 
+    Route::group(['prefix' => 'slides'], function (){
+        Route::get('/', ['as' => 'slidesMainPage', 'uses' => 'AdminController@getSlides']);
+        Route::get('/up/{id}', ['as' => 'sliderUp', 'uses' => 'AdminController@SliderUp']);
+        Route::get('/remove/{id}', ['as' => 'sliderRemove', 'uses' => 'AdminController@SlideRemove']);
+        Route::get('/down/{id}', ['as' => 'sliderDown', 'uses' => 'AdminController@SliderDown']);
+
+    });
+
 });
 

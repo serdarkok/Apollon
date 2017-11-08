@@ -18,11 +18,11 @@ class CreateArticlesConsTable extends Migration
             $table->integer('art_id');
             $table->string('art_name');
             $table->string('art_slug');
-            $table->text('art_abstract');
-            $table->text('art_content');
-            $table->string('art_image');
-            $table->string('art_keywords');
-            $table->string('art_description');
+            $table->text('art_abstract')->nullable();;
+            $table->text('art_content')->nullable();;
+            $table->string('art_image')->nullable();
+            $table->string('art_keywords')->nullable();;
+            $table->string('art_description')->nullable();;
             $table->timestamps();
         });
     }

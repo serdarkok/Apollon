@@ -93,34 +93,14 @@
                 </ul>
             </li>
 
+            <li><a href="{{ route('slidesMainPage') }}"><i class="fa fa-desktop"></i>{{ trans('text.admin.menu.slides') }}</a></li>
+
             <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.menus') }}</a>
                 <ul>
                     <li><a href="{{ route('menusMainPage') }}">{{ trans('text.admin.menu.allmenus') }}</a></li>
                     <li><a href="{{ route('getNewMenu') }}">{{ trans('text.admin.menu.newmenu') }}</a></li>
                 </ul>
             </li>
-
-            <li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
-            <li><a href="charts.html"><i class="fa fa-pie-chart"></i> Charts</a></li>
-            <li><a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown</a>
-                <ul>
-                    <li><a href="#">2nd level</a></li>
-                    <li><a href="#">2nd level</a></li>
-                    <li><a href="#">3rd level</a>
-                        <ul>
-                            <li><a href="#">3rd level</a></li>
-                            <li><a href="#">3rd level</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-files-o"></i> Sample Pages</a>
-                <ul>
-                    <li><a href="blank.html">Blank page</a></li>
-                    <li><a href="login.html">Login page</a></li>
-                </ul>
-            </li>
-
             <!-- Account from above -->
             <ul class="ts-profile-nav">
                 <li><a href="#">Help</a></li>
@@ -169,6 +149,24 @@
 <script src="/admin-sources/js/fileinput.js"></script>
 <script src="/admin-sources/js/chartData.js"></script>
 <script src="/admin-sources/js/main.js"></script>
+<script>
+    function string_to_slug(str) {
+        str = str.replace(/^\s+|\s+$/g, ''); // trim
+        str = str.toLowerCase();
+
+        // remove accents, swap ñ for n, etc
+        var from = "àáäâèéëêìíïîışòóöôùúüûñçğ·/_,:;";
+        var to   = "aaaaeeeeiiiiisoooouuuuncg------";
+        for (var i=0, l=from.length ; i<l ; i++) {
+            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+            .replace(/\s+/g, '-') // collapse whitespace and replace by -
+            .replace(/-+/g, '-'); // collapse dashes
+
+        return str;
+    }
+</script>
 @yield('footer')
 </body>
 

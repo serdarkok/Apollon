@@ -6,7 +6,6 @@
         <div class="panel panel-default">
             <div class="panel-heading">{{ trans('text.admin.menu.allmenus') }}</div>
             <div class="panel-body">
-
                 <table class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -27,8 +26,9 @@
                     </tr>
                     </tfoot>
                     <tbody>
+                    Pasif olan menüler sitede görünmez ve aşağıda <span style="background-color: rgba(255,49,49,0.11); display: inline-block; height: 20px; width: 20px; border: 1px solid #DFDFDF; margin-bottom: -4px;"></span> renkte görülmektedir.
                     @foreach($menus as $bilgi)
-                        <tr>
+                        <tr @if($bilgi->status == 0) style="background-color: rgba(255,49,49,0.11);" @endif>
                             <td>{{ $bilgi->id }}</td>
                             <td>{{ $bilgi->_content['menu_name'] }}</td>
                             <td>{{ $bilgi->_content['menu_link'] }}</td>
@@ -36,7 +36,7 @@
                             <td class="text-center" id="confirm"><a href="menus/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
                         </tr>
                         @foreach($bilgi->child_menus as $item)
-                            <tr>
+                            <tr @if($item->status == 0) style="background-color: rgba(255,49,49,0.11);" @endif>
                                 <td>{{ $item->id }}</td>
                                 <td><i class="fa fa-long-arrow-right"></i> {{ $item->_content['menu_name'] }}</td>
                                 <td>{{ $item->_content['menu_link'] }}</td>

@@ -14,14 +14,14 @@
                     <div class="form-group">
                         {{ Form::label('Kategori Adı', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::text('category_name', null, ['class' => 'form-control', 'placeholder' => 'Kategori Adı']) }}
+                            {{ Form::text('category_name', null, ['class' => 'form-control', 'placeholder' => 'Kategori Adı', 'id' => 'category_name']) }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         {{ Form::label('Kategori Kısa Adı', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::text('category_slug', null, ['class' => 'form-control', 'placeholder' => 'Kategori Kısa Adı']) }}
+                            {{ Form::text('category_slug', null, ['class' => 'form-control', 'placeholder' => 'Kategori Kısa Adı', 'id' => 'category_slug']) }}
                         </div>
                     </div>
 
@@ -52,12 +52,12 @@
             </div>
         </div>
     </div>
+@endsection
 
+@section('footer')
     <script>
-
-        $(document).ready(function () {
-            $('#phone').mask("99/99/9999", {placeholder: 'MM/DD/YYYY' });
-        });
+        $('#category_name').blur(function () {
+            $('#category_slug').val(string_to_slug($('#category_name').val()));
+        })
     </script>
-
 @endsection

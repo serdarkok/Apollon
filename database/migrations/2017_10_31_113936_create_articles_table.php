@@ -16,7 +16,8 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cat_id')->nullable();
-            $table->timestamp('end_date')->nullable();;
+            $table->timestamp('end_date')->nullable();
+            $table->boolean('slider')->nullable();
             $table->boolean('home_page')->nullable();
             $table->boolean('status')->nullable();;
         });

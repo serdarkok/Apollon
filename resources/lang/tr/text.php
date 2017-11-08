@@ -14,7 +14,9 @@ return [
             'allmenus'      => 'Tüm Menüler',
             'articles'      => 'Yazılar',
             'newarticle'    => 'Yeni Yazı',
-            'allarticles'   => 'Tüm Yazılar'
+            'allarticles'   => 'Tüm Yazılar',
+            'allslides'     => 'Tüm Slaytlar',
+            'slides'        => 'Slaytlar'
         ]
 
     ]
