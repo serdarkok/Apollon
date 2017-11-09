@@ -1,7 +1,5 @@
 @extends('admin.layout')
-
 @section('content')
-
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -41,10 +39,8 @@
                             <td class="text-center" id="confirm"><a href="articles/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sill</a></td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
@@ -58,5 +54,4 @@
             }
         });
     </script>
-
 @endsection

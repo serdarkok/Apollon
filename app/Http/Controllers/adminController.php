@@ -6,6 +6,7 @@ use App\Article;
 use App\Articles_con;
 use App\Categories;
 use App\Categories_con;
+use App\Guestbook;
 use App\Language;
 use App\Menu;
 use App\Menu_con;
@@ -506,5 +507,54 @@ class adminController extends Controller
         Article::findOrFail($id)->update(['slider' => '0']);
         Slider::where('art_id', $id)->delete();
         return Redirect::back();
+    }
+
+    public function getGuestBooks()
+    {
+        $_ = Guestbook::where('guest_reply', 0)->get();
+        return view('admin.guestbooks', ['guestbooks' => $_]);
+    }
+
+    public function getEditGuestBooks($id)
+    {
+        $_ = Guestbook::findOrFail($id);
+        $_2 = Guestbook::select('guest_text')->where('guest_reply', $id)->first();
+        if ($_2) {
+            $_->guest_answer = $_2->guest_text;
+        }
+
+        return view('admin.newGuestBook', ['guestbooks' => $_]);
+    }
+
+    public function postEditGuestBooks(Request $r, $id)
+    {
+        $_ = $r->only('guest_fullname' ,'guest_email' ,'guest_text', 'guest_phone');
+
+        Guestbook::findOrFail($id)->update($_);
+
+        if ($r->guest_answer)
+        {
+            $_2 = Guestbook::select('id')->where('guest_reply', $id)->first();
+            if ($_2) {
+                $_ = Guestbook::findOrFail($_2->id);
+                $_->guest_text = $r->guest_answer;
+                $_->guest_reply = $id;
+                $_->status = '1';
+                $_->save();
+            }
+            else {
+                $_ = new Guestbook();
+                $_->guest_text = $r->guest_answer;
+                $_->guest_reply = $id;
+                $_->status = '1';
+                $_->save();
+            }
+        }
+        else
+        {
+            Guestbook::where('guest_reply', $id)->delete();
+        }
+
+        return Redirect::route('guestbookMainPage');
     }
 }

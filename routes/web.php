@@ -79,5 +79,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     });
 
+    Route::group(['prefix' => 'guestbooks'], function (){
+       Route::get('/', ['as' => 'guestbookMainPage', 'uses' => 'AdminController@getGuestBooks']);
+       Route::get('/new/{id}', ['as' => 'getEditGuestBooks', 'uses' => 'AdminController@getEditGuestBooks']);
+       Route::post('/new/{id}', ['as' => 'postEditGuestBooks', 'uses' => 'AdminController@postEditGuestBooks']);
+    });
+
 });
 

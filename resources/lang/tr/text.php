@@ -16,7 +16,9 @@ return [
             'newarticle'    => 'Yeni Yazı',
             'allarticles'   => 'Tüm Yazılar',
             'allslides'     => 'Tüm Slaytlar',
-            'slides'        => 'Slaytlar'
+            'slides'        => 'Slaytlar',
+            'allguestbooks' => 'Tüm Sorular',
+            'guestbooks'    => 'Sorular'
         ]
 
     ]

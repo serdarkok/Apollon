@@ -95,6 +95,8 @@
 
             <li><a href="{{ route('slidesMainPage') }}"><i class="fa fa-desktop"></i>{{ trans('text.admin.menu.slides') }}</a></li>
 
+            <li><a href="{{ route('guestbookMainPage') }}"><i class="fa fa-desktop"></i>{{ trans('text.admin.menu.guestbooks') }}</a></li>
+
             <li><a href="#"><i class="fa fa-desktop"></i> {{ trans('text.admin.menu.menus') }}</a>
                 <ul>
                     <li><a href="{{ route('menusMainPage') }}">{{ trans('text.admin.menu.allmenus') }}</a></li>
