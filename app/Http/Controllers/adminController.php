@@ -14,7 +14,6 @@ use App\Setting;
 use App\Slider;
 use App\User;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 use Redirect;
