@@ -219,8 +219,11 @@
         $("#hidden").toggle("fast", function () {
         });
     });
+
+    $("#hidden").css('display','none');
+
     $(document).ready( function(){
-        $("#hidden").css('display','none');
+        // $("#hidden").css('display','none');
         if ($('#slider').is(':checked'))
         {
             $("#hidden").css('display','block');

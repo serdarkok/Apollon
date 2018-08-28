@@ -1,14 +1,5 @@
 // Menü building select nav for mobile width only
 $(function(){
-    // building select menu
-    $('<select />').appendTo('nav');
-
-    // building an option for select menu
-    $('<option />', {
-        'selected': 'selected',
-        'value' : '',
-        'text': 'Choise Page...'
-    }).appendTo('nav select');
 
     $('nav ul li a').each(function(){
         var target = $(this);

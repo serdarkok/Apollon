@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
+Route::get('/', ['as' => 'homepage', 'uses' => 'layoutController@getHomePage']);
+
+/* Route::get('/', function () {
+    return view('homepage');
+});
+*/
+
+Route::get('/deneme', function () {
+    return view('subpage');
 });
 
 Route::get('/logout', ['as' => 'logout', 'uses' => 'loginController@getLogout']);
