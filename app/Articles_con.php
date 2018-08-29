@@ -16,4 +16,5 @@ class Articles_con extends Model
         'art_keywords',
         'art_description',
     ];
+
 }

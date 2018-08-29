@@ -12,8 +12,8 @@
         <div class="panel panel-default">
             <div class="panel-heading">Yeni Yazı</div>
             <div class="panel-body">
-                @if(isset($menu))
-                    {{ Form::model($menu, ['route' => ['postEditArticle', $menu->id], 'class' => 'form-horizontal', 'id' => 'edit-user', 'files' => true]) }}
+                @if(isset($article))
+                    {{ Form::model($article, ['route' => ['postEditArticle', $article->art_id], 'class' => 'form-horizontal', 'id' => 'edit-article', 'files' => true]) }}
                 @else
                     {{ Form::open(['class' => 'form-horizontal', 'id' => 'new-user', 'files' => true]) }}
                 @endif
@@ -63,7 +63,7 @@
                     <div class="form-group">
                         {{ Form::label('Dil', null, ['class' => 'col-sm-2 control-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::select('menu_lang_id', $languages , null, ['class' => 'form-control', 'placeholder' => 'Seçiniz...'])}}
+                            {{ Form::select('art_lang_id', $languages , null, ['class' => 'form-control', 'placeholder' => 'Seçiniz...'])}}
                         </div>
                     </div>
                     <div class="form-group">
@@ -162,14 +162,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-        $(document).ready(function () {
-            $('#phone').mask("99/99/9999", {placeholder: 'MM/DD/YYYY' });
-        });
-    </script>
-
 @endsection
 
 @section('footer')
@@ -226,6 +218,7 @@
         // $("#hidden").css('display','none');
         if ($('#slider').is(':checked'))
         {
+            console.log("Evet işaretli");
             $("#hidden").css('display','block');
         }
     });

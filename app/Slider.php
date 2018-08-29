@@ -17,13 +17,8 @@ class Slider extends Model
 
     public function getsliderenddateAttribute($value)
     {
-        return Carbon::parse($value)->format('d.m.Y');
-    }
-
-    public function setsliderenddateAttribute($value)
-    {
         if ($value == null) {
-            return $this->attributes['slider_end_date'] = "2030-11-30 00:00:00";
+            return $this->attributes['slider_end_date'] = "";
         }
         else {
             return $this->slider_end_date = Carbon::parse($value)->format('d.m.Y');
@@ -31,11 +26,6 @@ class Slider extends Model
     }
 
     public function getsliderstartdateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d.m.Y');
-    }
-
-    public function setsliderstartdateAttribute($value)
     {
         if ($value == null) {
             return $this->attributes['slider_start_date'] = Carbon::now();

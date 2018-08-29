@@ -14,6 +14,7 @@ use App\Setting;
 use App\Slider;
 use App\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 use Redirect;
@@ -388,6 +389,49 @@ class adminController extends Controller
         return view('admin.newArticle', ['categories' => $_2, 'languages' => $_languages]);
     }
 
+    public function getEditArticle($id)
+    {
+
+        $_categories = Categories::select('id')->get();
+
+        // Eğer herhangi bir kategori yoksa, 0 Kategorisiz array'i oluşturur.
+        if (count($_categories) > 0)
+        {
+            $_2 = [];
+            foreach ($_categories as $item)
+            {
+                $_1[] = Categories_con::where('cat_id', $item->id)->pluck('category_name','id');
+            }
+
+            foreach ($_1 as $item) {
+                foreach ($item as $key => $value) {
+                    $_2 += [$key => $value];
+                }
+            }
+        }
+        else
+        {
+            $_2 = ['0' => 'Kategorisiz'];
+        }
+
+        $_languages = Language::pluck('language_name', 'id');
+
+        $__ = Article::findOrFail($id);
+
+        $_a = Articles_con::where('art_id','=', $id)->first();
+
+        $_a['cat_id'] = $__->cat_id;
+        $_a['end_date'] = $__->end_date;
+        $_a['slider'] = $__->slider;
+        $_a['home_page'] = $__->home_page;
+        $_a['status'] = $__->status;
+
+
+        // return $_a;
+
+        return view('admin.newArticle', ['categories' => $_2, 'languages' => $_languages, 'article' =>  $_a]);
+    }
+
     // Slider Order Bulma
     public function SliderOrder()
     {
@@ -404,6 +448,9 @@ class adminController extends Controller
 
         $_article_short = $r->only('cat_id', 'end_date', 'slider', 'home_page', 'status');
         $art_id = Article::create($_article_short)->id;
+        $r->request->add(['art_id' => $art_id]);
+        // art_image file_name ismini alıyor.
+        $_data = $r->all();
         if ($r->hasFile('art_image'))
         {
             $dosya = $r->file('art_image');
@@ -415,11 +462,9 @@ class adminController extends Controller
             })->save('uploads/images/'.$file_name, 80);
             // Memory'den silinir.
             $dosya->destroy();
+            $_data['art_image'] = $file_name;
         }
-        $r->request->add(['art_id' => $art_id]);
-        // art_image file_name ismini alıyor.
-        $_data = $r->all();
-        $_data['art_image'] = $file_name;
+
         Articles_con::create($_data);
 
         // Yazı slayt olacaksa aşağıdaki işlem yapılır.
@@ -429,6 +474,64 @@ class adminController extends Controller
             Slider::create($_slider);
         }
         // return Redirect::route('articlesMainPage');
+    }
+
+    public function postEditArticle(Request $r, $id) {
+        $_article_short = $r->only('cat_id', 'end_date', 'slider', 'home_page', 'status');
+        Article::where('id', $id)->update($_article_short);
+
+        $_data = $r->except(['_token', 'cat_id', 'end_date', 'slider', 'home_page', 'status', 'slider_start_date', 'slider_end_date', 'slider_link']);
+
+        // Eğer yeni bir image yüklenmişse
+        if ($r->hasFile('art_image'))
+        {
+            // Eskiden yüklenmiş image'ı siler
+            $_foto = Articles_con::where('art_id', $id)->first();
+            Storage::disk('public_folder')->delete(''.$_foto->art_image.'');
+
+            $dosya = $r->file('art_image');
+            $file_name = $id . "_" . rand(11111,9999999) . "." . mb_strtolower($dosya->getClientOriginalExtension());
+            $dosya = Image::make($r->file('art_image'));
+            // Buradaki 400 px ebatlarında genişliktir. Genişlik 400'den küçükse bu işlen yapılmaz. Yükseklikte genişliğe oranla küçülür.
+            $dosya->widen(400, function ($constraint) {
+                $constraint->upsize();
+            })->save('uploads/images/'.$file_name, 80);
+            // Memory'den silinir.
+            $dosya->destroy();
+            // art_image file_name ismini alıyor.
+            $_data['art_image'] = $file_name;
+        }
+        Articles_con::where('art_id', $id)->update($_data);
+
+        // Yazı slayt olacaksa aşağıdaki işlem yapılır.
+        if($r->slider) {
+            $_ = Slider::where('art_id', $id)->first();
+            if (!empty($_))
+            {
+                $_slider = $r->only('slider_start_date', 'slider_end_date', 'slider_order', 'art_id', 'slider_link');
+                // $_slider['art_id'] = $id;
+                // return $_slider;
+                $_->update($_slider);
+            }
+            else
+            {
+                $r->request->add(['slider_order' => $this->SliderOrder()]);
+                $_slider = $r->only('slider_start_date', 'slider_end_date', 'slider_order', 'art_id', 'slider_link');
+                $_slider['art_id'] = $id;
+                Slider::create($_slider);
+            }
+        }
+        // Varolan slider kaldırılmışsa aşağıdaki işlemi yapar
+        else
+        {
+            $_ = Slider::where('art_id', $id)->first();
+            if (!empty($_))
+            {
+                $_->delete();
+            }
+        }
+
+        return Redirect::route('articlesMainPage');
     }
 
     public function deleteArticle($id) {

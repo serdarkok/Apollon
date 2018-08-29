@@ -7,7 +7,7 @@
             <div class="panel-heading">Yeni Menü</div>
             <div class="panel-body">
                 @if(isset($menu))
-                    {{ Form::model($menu, ['route' => ['postEditMenu', $menu->id], 'class' => 'form-horizontal', 'id' => 'edit-user']) }}
+                    {{ Form::model($menu, ['route' => ['postEditMenu', $menu->id], 'class' => 'form-horizontal', 'id' => 'edit-menu']) }}
                 @else
                     {{ Form::open(['class' => 'form-horizontal', 'id' => 'new-user']) }}
                 @endif

@@ -26,22 +26,17 @@ class Article extends Model
 
     public function getenddateAttribute($value)
     {
-        return Carbon::parse($value)->format('d.m.Y');
-    }
-
-    public function setenddateAttribute($value)
-    {
-        if ($value == null) {
-            return $this->attributes['end_date'] = "2030-11-30 00:00:00";
+        if ($value == "0000-00-00" || $value == "") {
+            return $this->attributes['end_date'] = "";
         }
         else {
             return $this->attributes['end_date'] = Carbon::parse($value)->format('d.m.Y');
         }
     }
 
-    public function setCatIdattribute($value)
+    public function getcatidAttribute($value)
     {
-        if ($value == null)
+        if ($value == 0)
         {
             return $this->attributes['cat_id'] = '0';
         }

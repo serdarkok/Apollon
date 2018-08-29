@@ -36,7 +36,7 @@
                             <td>{{ $bilgi->_categories['category_name'] }}</td>
                             <td class="text-center">@if($bilgi->home_page) <i class="fa fa-circle"></i> @else <i class="fa fa-circle-o"></i> @endif</td>
                             <td class="text-center"><a href="articles/new/{{ $bilgi->id }}" class="btn btn-default btn-xs">Düzenle</a></td>
-                            <td class="text-center" id="confirm"><a href="articles/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sill</a></td>
+                            <td class="text-center" id="confirm"><a href="articles/delete/{{ $bilgi->id }}" class="btn btn-danger btn-xs">Sil</a></td>
                         </tr>
                     @endforeach
                     </tbody>
