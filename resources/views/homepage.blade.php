@@ -13,6 +13,20 @@
         <div class="container slider-top">
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                 <div class="slider">
+                    @foreach($slider as $item)
+                        <div>
+                            @if($item->art_image)
+                                <a href="">
+                            @endif
+                                <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                                <div class="slider-desc">
+                                    {{ $item->art_name }}
+                                </div>
+                            @if($item->art_image)
+                                </a>
+                            @endif
+                        </div>
+                    @endforeach
                     <div>
                         <a href=""><img src="/images/slider/1.jpg" class="img-responsive" />
                             <div class="slider-desc">

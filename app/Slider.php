@@ -21,17 +21,28 @@ class Slider extends Model
             return $this->attributes['slider_end_date'] = "";
         }
         else {
-            return $this->slider_end_date = Carbon::parse($value)->format('d.m.Y');
+            return $this->attributes['slider_end_date'] = Carbon::parse($value)->format('d.m.Y');
         }
     }
 
     public function getsliderstartdateAttribute($value)
     {
         if ($value == null) {
-            return $this->attributes['slider_start_date'] = Carbon::now();
+            return $this->attributes['slider_start_date'] = "";
         }
         else {
             return $this->slider_start_date = Carbon::parse($value)->format('d.m.Y');
+        }
+    }
+
+    // Formdan gönderilen tarihi covert eder.
+    public function setsliderenddateAttribute($value) {
+        if ($value == null)
+        {
+            return $this->attributes['slider_end_date'] = Carbon::createFromDate('2030','12','30');
+        }
+        else{
+            return $this->attributes['slider_end_date'] = (new Carbon($value))->format('Y-m-d');
         }
     }
 

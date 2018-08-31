@@ -6,29 +6,28 @@ use App\Article;
 use App\Articles_con;
 use App\Slider;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 
 class layoutController extends Controller
 {
     public function getHomePage() {
-        $_slider = Article::select('id')->where('slider', '=', '1')->get();
-        // return $_slider;
+        // Slider tablosunda slider olan yazıların art_id'lerini aldık. Burada tarih sorgusu da kullanık
+        $__ = Slider::select('art_id')->whereDate(DB::raw("COALESCE(slider_end_date, '9999-12-31 00:00:00')"), ">", Carbon::now())->orderBy('slider_order', 'ASC')->get();
         $_ = [];
-        foreach ($_slider as $item){
-        $_[] += $item->id;
+
+        // Gelen sorgudaki art_id'leri array'e aktardık.
+        foreach ($__ as $item){
+            $_[] += $item->art_id;
         }
+        // Sıralama yapabilmek için arraylari virgül ile ayırdık.
+        $ids_ordered = implode(',', $_);
 
-        // $__ = Slider::whereIn('art_id', $_)->whereRaw('IF (slider_end_date != null)')->where('slider_end_date','>', Carbon::now())->get();
+        $_ = Articles_con::whereIn('art_id', $_)->orderByRaw(DB::raw("FIELD(art_id, $ids_ordered)"))->get();
 
-        $__ = Slider::select('art_id', \DB::raw('(CASE WHEN slider_end_date = null THEN 2050-11-11 END) AS slider_end_date'))->get();
+        // return $_;
 
-        // Slider'ı end_date'e göre çekmeye çalışıyorum. En son 29 Ağs 2018 - 17:02
-
-        // $__ = Articles_con::whereIn('art_id', $_)->get();
-
-        return $__;
-
-        return view('homepage');
+        return view('homepage', ['slider' => $_]);
         return $_slider;
 
     }

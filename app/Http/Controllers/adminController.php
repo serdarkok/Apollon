@@ -426,6 +426,11 @@ class adminController extends Controller
         $_a['home_page'] = $__->home_page;
         $_a['status'] = $__->status;
 
+        $__ = Slider::where('art_id', '=', $id)->first();
+
+        $_a['slider_start_date'] = $__->slider_start_date;
+        $_a['slider_end_date'] = $__->slider_end_date;
+        $_a['slider_link'] = $__->slider_link;
 
         // return $_a;
 
@@ -456,8 +461,8 @@ class adminController extends Controller
             $dosya = $r->file('art_image');
             $file_name = $art_id . "_" . rand(11111,9999999) . "." . mb_strtolower($dosya->getClientOriginalExtension());
             $dosya = Image::make($r->file('art_image'));
-            // Buradaki 400 px ebatlarında genişliktir. Genişlik 400'den küçükse bu işlen yapılmaz. Yükseklikte genişliğe oranla küçülür.
-            $dosya->widen(400, function ($constraint) {
+            // Buradaki 710 px ebatlarında genişliktir. Genişlik 400'den küçükse bu işlen yapılmaz. Yükseklikte genişliğe oranla küçülür.
+            $dosya->widen(710, function ($constraint) {
                 $constraint->upsize();
             })->save('uploads/images/'.$file_name, 80);
             // Memory'den silinir.
@@ -492,8 +497,8 @@ class adminController extends Controller
             $dosya = $r->file('art_image');
             $file_name = $id . "_" . rand(11111,9999999) . "." . mb_strtolower($dosya->getClientOriginalExtension());
             $dosya = Image::make($r->file('art_image'));
-            // Buradaki 400 px ebatlarında genişliktir. Genişlik 400'den küçükse bu işlen yapılmaz. Yükseklikte genişliğe oranla küçülür.
-            $dosya->widen(400, function ($constraint) {
+            // Buradaki 710 px ebatlarında genişliktir. Genişlik 400'den küçükse bu işlen yapılmaz. Yükseklikte genişliğe oranla küçülür.
+            $dosya->widen(710, function ($constraint) {
                 $constraint->upsize();
             })->save('uploads/images/'.$file_name, 80);
             // Memory'den silinir.

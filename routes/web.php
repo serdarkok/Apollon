@@ -18,6 +18,10 @@ Route::get('/', ['as' => 'homepage', 'uses' => 'layoutController@getHomePage']);
 });
 */
 
+Route::get('/info', function (){
+    return view('info');
+});
+
 Route::get('/deneme', function () {
     return view('subpage');
 });
