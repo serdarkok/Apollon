@@ -478,7 +478,7 @@ class adminController extends Controller
             $_slider = $r->only('slider_start_date', 'slider_end_date', 'slider_order', 'art_id', 'slider_link');
             Slider::create($_slider);
         }
-        // return Redirect::route('articlesMainPage');
+        return Redirect::route('articlesMainPage');
     }
 
     public function postEditArticle(Request $r, $id) {
@@ -547,7 +547,9 @@ class adminController extends Controller
         //
         Articles_con::where('art_id','=', $id)->delete();
         // Article'a ait kayıtlı resim varsa onu da siler
-        File::delete('uploads/images/'.$_art_image->art_image);
+        if($_art_image->art_image) {
+            File::delete('uploads/images/'.$_art_image->art_image);
+        }
         // O yazıya ait slayt varsa onu da siler.
         Slider::where('art_id','=', $id)->delete();
         return Redirect::route('articlesMainPage');

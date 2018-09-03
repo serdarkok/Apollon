@@ -192,6 +192,14 @@ p {
     padding: 10px;
 }
 
+.sub-head-image {
+    width: 50%;
+    float: left;
+    padding: 2px;
+    margin-right: 10px;
+    border: 1px solid #DFDFDF;
+}
+
 /* ----- Slider ----- */
 
 .slider-top {

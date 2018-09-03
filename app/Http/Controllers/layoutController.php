@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Articles_con;
+use App\Categories_con;
 use App\Slider;
 use Carbon\Carbon;
 use DB;
@@ -25,15 +26,32 @@ class layoutController extends Controller
 
         $_ = Articles_con::whereIn('art_id', $_)->orderByRaw(DB::raw("FIELD(art_id, $ids_ordered)"))->get();
 
+        // return $_;
+        // return $_;
+
         foreach ($_ as $item) {
             $__ = Slider::where('art_id', '=', $item->art_id)->first();
             $item['slider_link'] = $__->slider_link;
+            $___ = Article::where('id', $item->art_id)->first();
+            $_category_name = Categories_con::select('category_slug')->where('cat_id', $___->cat_id)->first();
+            $item['cat_id'] = $_category_name->category_slug;
         }
 
         // return $_;
 
         return view('homepage', ['slider' => $_]);
-        return $_slider;
+        // return $_;
 
+    }
+
+    public function getArticle($category, $article) {
+        // $data'dan gelen verideki son ID'yi alır.
+        preg_match('/(\d+)\D*$/', $article ,$veri);
+
+        $_ = Articles_con::where('art_id', $veri[0])->first();
+
+        return view('subpage', ['article' => $_]);
+
+        return $_;
     }
 }

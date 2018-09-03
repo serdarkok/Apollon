@@ -18,7 +18,7 @@
                     @foreach($slider as $item)
                         <div>
                             @if($item->slider_link)
-                                <a href="{{ $item->slider_link }}">
+                                <a href="/{{$item->cat_id}}/{{ $item->slider_link }}-{{ $item->art_id }}">
                                     @endif
                                     <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
                                     <div class="slider-desc">
