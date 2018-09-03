@@ -7,6 +7,31 @@
  */
 ?>
 <div class="col-md-3">
+        <div class="right-square slider-top" style="margin-bottom: 10px;">
+            <div style="position:relative; height: 27px;">
+                <div class="social-button">
+                    <a href=""><img src="/images/social/facebook.png" /></a>
+                    <a href=""><img src="/images/social/twitter.png" /></a>
+                    <a href=""><img src="/images/social/instagram.png" /></a>
+                    <a href=""><img src="/images/social/youtube.png" /></a>
+                </div>
+            </div>
+            <hr />
+            <img src="/images/bilgi-1.png" class="img-responsive center-block" />
+            <div class="send-number">
+                <h4>Telefonunuzu gönderin sizi arayalım...</h4>
+                <form method="post" action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="İsim Soyisim">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Telefon">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm btn-block">Gönder</button>
+                </form>
+            </div>
+        </div>
+
     <img src="/images/ulasim-formu.png" class="img-responsive" />
 
     <div class="main-box">

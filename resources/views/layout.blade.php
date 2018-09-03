@@ -75,20 +75,20 @@
             <div class="col-md-3 col-xs-6">
                 <img src="/images/logo.png" class="img-responsive logo" style="position: absolute;" />
             </div>
-            <div class="col-md-9 col-xs-6">
+            <div class="col-md-9 col-xs-6 text-right">
                 <button class="menu-btn visible-xs"><i class="fa fa-bars fa-2x"></i> </button>
                 <!-- Menü -->
                 <div id="fdw">
                     <!--nav-->
                     <nav class="hidden-xs">
                         <ul>
-                            <li><a href="/">ANA SAYFA</a>
+                            <li><a href="/"><i class="fa fa-home"></i> </a>
                             </li>
                             <li><a href="#">DOĞA HAKKINDA</a></li>
                             <li><a href="#">DOĞA'NIN FARKI</a></li>
                             <li>
                                 <a href="#">HİZMETLERİMİZ</a>
-                                <ul style="display: none;" class="sub_menu">
+                                <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
                                     <li><a href="#">Yaşlı Bakım Hizmetleri</a></li>
                                     <li><a href="#">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
@@ -103,7 +103,7 @@
                             </li>
                             <li>
                                 <a href="http://www.freshdesignweb.com">ŞUBELERİMİZ</a>
-                                <ul style="display: none;" class="sub_menu">
+                                <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
                                     <li><a href="#">Sancaktepe Yaşlı Bakım Merkezi</a></li>
                                     <li><a href="#">Kızıltoprak Klinik Evi</a></li>

@@ -25,6 +25,11 @@ class layoutController extends Controller
 
         $_ = Articles_con::whereIn('art_id', $_)->orderByRaw(DB::raw("FIELD(art_id, $ids_ordered)"))->get();
 
+        foreach ($_ as $item) {
+            $__ = Slider::where('art_id', '=', $item->art_id)->first();
+            $item['slider_link'] = $__->slider_link;
+        }
+
         // return $_;
 
         return view('homepage', ['slider' => $_]);

@@ -9,75 +9,29 @@
 @extends('layout')
 
 @section('slider')
-    <section>
-        <div class="container slider-top">
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+@endsection
+
+@section('content')
+            <div class="col-md-12 slider-top" style="margin-bottom: 10px;">
                 <div class="slider">
                     @foreach($slider as $item)
                         <div>
-                            @if($item->art_image)
-                                <a href="">
-                            @endif
-                                <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
-                                <div class="slider-desc">
-                                    {{ $item->art_name }}
-                                </div>
-                            @if($item->art_image)
+                            @if($item->slider_link)
+                                <a href="{{ $item->slider_link }}">
+                                    @endif
+                                    <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                                    <div class="slider-desc">
+                                        {{ $item->art_name }}
+                                    </div>
+                                    @if($item->slider_link)
                                 </a>
                             @endif
                         </div>
                     @endforeach
-                    <div>
-                        <a href=""><img src="/images/slider/1.jpg" class="img-responsive" />
-                            <div class="slider-desc">
-                                İleri yaşlarda mutlu bir yaşamın sırları...
-                            </div>
-                        </a>
-                    </div>
-                    <div><img src="/images/slider/2.jpg" class="img-responsive" />
-                        <div class="slider-desc">
-                            Demans nedir, nasıl başa çıkılır?
-                        </div>
-                    </div>
-                    <div><img src="/images/slider/3.jpg" class="img-responsive" />
-                        <div class="slider-desc">
-                            Tam 60 yıllık mutlu evlilik...
-                        </div>
-                    </div>
                 </div>
             </div>
-            <!-- Sağ Kısım -->
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="right-square">
-                    <div style="position:relative; height: 27px;">
-                        <div class="social-button">
-                            <a href=""><img src="/images/social/facebook.png" /></a>
-                            <a href=""><img src="/images/social/twitter.png" /></a>
-                            <a href=""><img src="/images/social/instagram.png" /></a>
-                            <a href=""><img src="/images/social/youtube.png" /></a>
-                        </div>
-                    </div>
-                    <hr />
-                    <img src="/images/bilgi-1.png" class="img-responsive center-block" />
-                    <div class="send-number">
-                        <h4>Telefonunuzu gönderin sizi arayalım...</h4>
-                        <form method="post" action="#">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="İsim Soyisim">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Telefon">
-                            </div>
-                            <button type="submit" class="btn btn-success btn-sm btn-block">Gönder</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endsection
 
-@section('content')
             <div class="col-md-12 line-flat">
                 <h3>HİZMETLERİMİZ</h3>
                 <div class="sol-sag">
