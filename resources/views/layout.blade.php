@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {!! SEO::generate() !!}
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/app.js"></script>
@@ -14,7 +14,6 @@
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/pushy.css">
     <link href="/css/text.css" rel="stylesheet">
-    <title>Doğa Huzurevi ve Bakımevi - İstanbul</title>
 </head>
 <body>
 
@@ -24,8 +23,18 @@
             <li class="pushy-link">
                 <a href="#">ANA SAYFA</a>
             </li>
-            <li class="pushy-link">
-                <a href="#">DOĞA HAKKINDA</a>
+            <li class="pushy-submenu">
+                <button>DOĞA HAKKINDA</button>
+                <ul>
+                    <li class="pushy-link"><a href="#">Yaşlı Bakım Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="#">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
+                    <li class="pushy-link"><a href="#">Yaşlı Sağlık Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="#">Yaşlı Medikal Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="#">Yaşlı Doktor Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="#">Yaşlı Hemşirelik Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="#">Yaşlı Refakat Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="#">Klinik Beslenme</a></li>
+                </ul>
             </li>
             <li class="pushy-link">
                 <a href="#">DOĞA'NIN FARKI</a>
@@ -41,7 +50,6 @@
                     <li class="pushy-link"><a href="#">Yaşlı Hemşirelik Hizmetleri</a></li>
                     <li class="pushy-link"><a href="#">Yaşlı Refakat Hizmetleri</a></li>
                     <li class="pushy-link"><a href="#">Klinik Beslenme</a></li>
-
                 </ul>
             </li>
             <li class="pushy-submenu">
@@ -84,7 +92,18 @@
                         <ul>
                             <li><a href="/"><i class="fa fa-home"></i> </a>
                             </li>
-                            <li><a href="#">DOĞA HAKKINDA</a></li>
+                            <li><a href="#">DOĞA HAKKINDA</a>
+                                <ul style="display: none;" class="sub_menu text-left">
+                                    <li class="arrow_top"></li>
+                                    <li><a href="/page/doga/hakkimizda-20">Hakkımızda</a></li>
+                                    <li><a href="/page/doga/felsefe-ve-ilkelerimiz-21">Felsefe ve İlkelerimiz</a></li>
+                                    <li><a href="/page/doga/misyonumuz-ve-vizyonumuz-22">Misyonumuz ve Vizyonumuz</a></li>
+                                    <li><a href="/page/doga/kadromuz">Kadromuz</a></li>
+                                    <li><a href="/page/doga/cozum-ortaklarimiz">Çözüm Ortaklarımız</a></li>
+                                    <li><a href="/page/doga/sizden-gelenler">Sizden Gelenler</a></li>
+                                    <li><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">DOĞA'NIN FARKI</a></li>
                             <li>
                                 <a href="#">HİZMETLERİMİZ</a>
@@ -105,9 +124,9 @@
                                 <a href="http://www.freshdesignweb.com">ŞUBELERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
-                                    <li><a href="#">Sancaktepe Yaşlı Bakım Merkezi</a></li>
-                                    <li><a href="#">Kızıltoprak Klinik Evi</a></li>
-                                    <li><a href="#">Dragos Hatice Satoğlu Yaşam Evi</a>
+                                    <li><a href="/page/subelerimiz/sancaktepe-yasli-bakim-merkezi">Sancaktepe Yaşlı Bakım Merkezi</a></li>
+                                    <li><a href="/page/subelerimiz/kiziltoprak-klinik-evi">Kızıltoprak Klinik Evi</a></li>
+                                    <li><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi">Dragos Hatice Satoğlu Yaşam Evi</a>
                                 </ul>
                             </li>
                             <li><a href="http://www.freshdesignweb.com">GALERİ</a></li>

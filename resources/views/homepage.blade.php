@@ -41,7 +41,9 @@
                 <ul id="carousel" class="carousel">
                     @foreach($hizmetler as $item)
                         <li>
-                            <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                            <a href="/page/hizmetlerimiz/{{$item->art_slug}}-{{ $item->art_id }}" target="_blank">
+                                <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                            </a>
                             <span>{{ $item->art_name }}</span>
                             <p>{{ $item->art_abstract }}</p>
                             <div class="arrow-next"><img src="/images/arrow-next.png" /></div>

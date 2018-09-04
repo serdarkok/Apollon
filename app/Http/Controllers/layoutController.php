@@ -6,6 +6,8 @@ use App\Article;
 use App\Articles_con;
 use App\Categories_con;
 use App\Slider;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -54,6 +56,13 @@ class layoutController extends Controller
         preg_match('/(\d+)\D*$/', $article ,$veri);
 
         $_ = Articles_con::where('art_id', $veri[0])->first();
+
+        SEOMeta::setTitle($_->art_name);
+        SEOMeta::setDescription($_->art_description);
+        SEOMeta::addKeyword([$_->art_keywords]);
+        OpenGraph::setTitle($_->art_name);
+        OpenGraph::addImage(url('/').'/uploads/images/'.$_->art_image);
+        OpenGraph::setDescription($_->art_description);
 
         return view('subpage', ['article' => $_]);
 
