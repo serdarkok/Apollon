@@ -37,9 +37,14 @@ class layoutController extends Controller
             $item['cat_id'] = $_category_name->category_slug;
         }
 
+        $__ = Article::select('id')->where('cat_id', '2')->get();
+
+        $__ = Articles_con::whereIn('art_id', $__)->get();
+
+        // return $__;
         // return $_;
 
-        return view('homepage', ['slider' => $_]);
+        return view('homepage', ['slider' => $_, 'hizmetler' => $__]);
         // return $_;
 
     }

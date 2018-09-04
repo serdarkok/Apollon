@@ -26,7 +26,7 @@ Route::get('/deneme', function () {
     return view('subpage');
 });
 
-Route::get('/{category}/{article}', ['as' => 'getArticle', 'uses' => 'layoutController@getArticle']);
+Route::get('/page/{category}/{article}', ['as' => 'getArticle', 'uses' => 'layoutController@getArticle']);
 
 Route::get('/logout', ['as' => 'logout', 'uses' => 'loginController@getLogout']);
 Route::get('/login',['as' => 'login', 'uses' => 'loginController@getLogin']);

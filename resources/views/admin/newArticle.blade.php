@@ -225,6 +225,7 @@
 
     $('#art_name').blur(function () {
         $('#art_slug').val(string_to_slug($('#art_name').val()));
+        $('#slider_link').val(string_to_slug($('#art_name').val()));
     })
 </script>
 @endsection

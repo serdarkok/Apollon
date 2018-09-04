@@ -18,7 +18,7 @@
                     @foreach($slider as $item)
                         <div>
                             @if($item->slider_link)
-                                <a href="/{{$item->cat_id}}/{{ $item->slider_link }}-{{ $item->art_id }}">
+                                <a href="/page/{{$item->cat_id}}/{{ $item->slider_link }}-{{ $item->art_id }}">
                                     @endif
                                     <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
                                     <div class="slider-desc">
@@ -39,30 +39,14 @@
                     <span id="right-hizmet"></span>
                 </div>
                 <ul id="carousel" class="carousel">
-                    <li>
-                        <img src="/images/s1.jpg" class="img-responsive" />
-                        <span>Yaşlı Bakım Hizmetleri</span>
-                        <p>Yaşlı bakımı tecrübe ve özen gerektiren bir alandır. Bu sebeple ekibimizi titizlikle seçeriz. Bakıcı kadromuzdaki, tamamı tecrübeli ve yaşlı…</p>
-                        <div class="arrow-next"><img src="/images/arrow-next.png" /></div>
-                    </li>
-                    <li>
-                        <img src="/images/s2.jpg" class="img-responsive" />
-                        <span>Yoğun Bakım Sonrası Hasta Bakımı</span>
-                        <p>Yoğun bakım tedavisi; hastalarda bir ya da birden fazla vücut organının çalışmaması ya da yetersizliği nedeniyle hasta takibini…</p>
-                        <div class="arrow-next"><img src="/images/arrow-next.png" /></div>
-                    </li>
-                    <li>
-                        <img src="/images/s3.jpg" class="img-responsive" />
-                        <span>Yaşlı Sağlık Hizmetleri</span>
-                        <p>Sağlığınız bizim için önemlidir. Doğa Klinik ve Yaşam evleri ile Doğa Evde Bakım Hizmetlerinde Sağlık Hizmetleri birinci sırada yer alır...</p>
-                        <div class="arrow-next"><img src="/images/arrow-next.png" /></div>
-                    </li>
-                    <li>
-                        <img src="/images/s4.jpg" class="img-responsive" />
-                        <span>Klinik Beslenme</span>
-                        <p>Yaşlı bakımı tecrübe ve özen gerektiren bir alandır. Bu sebeple ekibimizi titizlikle seçeriz. Bakıcı kadromuzdaki, tamamı tecrübeli ve yaşlı…</p>
-                        <div class="arrow-next"><img src="/images/arrow-next.png" /></div>
-                    </li>
+                    @foreach($hizmetler as $item)
+                        <li>
+                            <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                            <span>{{ $item->art_name }}</span>
+                            <p>{{ $item->art_abstract }}</p>
+                            <div class="arrow-next"><img src="/images/arrow-next.png" /></div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 

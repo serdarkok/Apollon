@@ -426,11 +426,13 @@ class adminController extends Controller
         $_a['home_page'] = $__->home_page;
         $_a['status'] = $__->status;
 
-        $__ = Slider::where('art_id', '=', $id)->first();
-
-        $_a['slider_start_date'] = $__->slider_start_date;
-        $_a['slider_end_date'] = $__->slider_end_date;
-        $_a['slider_link'] = $__->slider_link;
+        if ($__->slider)
+        {
+            $__ = Slider::where('art_id', '=', $id)->first();
+            $_a['slider_start_date'] = $__->slider_start_date;
+            $_a['slider_end_date'] = $__->slider_end_date;
+            $_a['slider_link'] = $__->slider_link;
+        }
 
         // return $_a;
 

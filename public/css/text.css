@@ -315,9 +315,15 @@ p {
     border-left: none !important;
 }
 
+.carousel li img {
+    padding: 10px;
+}
+
 .carousel li span {
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
+    margin-top: 4px;
+    display: block;
 }
 .carousel li p {
     font-size: 12px;
