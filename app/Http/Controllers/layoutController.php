@@ -55,6 +55,7 @@ class layoutController extends Controller
         // $data'dan gelen verideki son ID'yi alır.
         preg_match('/(\d+)\D*$/', $article ,$veri);
 
+        if ($veri){
         $_ = Articles_con::where('art_id', $veri[0])->first();
 
         SEOMeta::setTitle($_->art_name);
@@ -65,7 +66,10 @@ class layoutController extends Controller
         OpenGraph::setDescription($_->art_description);
 
         return view('subpage', ['article' => $_]);
-
-        return $_;
+        }
+        else
+        {
+            return abort(404);
+        }
     }
 }
