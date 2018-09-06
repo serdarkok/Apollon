@@ -16,7 +16,7 @@
     <link href="/css/text.css" rel="stylesheet">
 </head>
 <body>
-
+@include('flash::message')
 <nav class="pushy pushy-left" data-focus="#first-link">
     <div class="pushy-content">
         <ul>
@@ -37,7 +37,7 @@
                 </ul>
             </li>
             <li class="pushy-link">
-                <a href="#">DOĞA'NIN FARKI</a>
+                <a href="/page/doga/doganin-farki-23">DOĞA'NIN FARKI</a>
             </li>
             <li class="pushy-submenu">
                 <button>HİZMETLERİMİZ</button>
@@ -104,7 +104,7 @@
                                     <li><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">DOĞA'NIN FARKI</a></li>
+                            <li><a href="/page/doga/doganin-farki-23">DOĞA'NIN FARKI</a></li>
                             <li>
                                 <a href="#">HİZMETLERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
@@ -124,9 +124,9 @@
                                 <a href="http://www.freshdesignweb.com">ŞUBELERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
-                                    <li><a href="/page/subelerimiz/sancaktepe-yasli-bakim-merkezi">Sancaktepe Yaşlı Bakım Merkezi</a></li>
-                                    <li><a href="/page/subelerimiz/kiziltoprak-klinik-evi">Kızıltoprak Klinik Evi</a></li>
-                                    <li><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi">Dragos Hatice Satoğlu Yaşam Evi</a>
+                                    <li><a href="/page/subelerimiz/sancaktepe-yasli-bakim-merkezi-24">Sancaktepe Yaşlı Bakım Merkezi</a></li>
+                                    <li><a href="/page/subelerimiz/kiziltoprak-klinik-evi-25">Kızıltoprak Klinik Evi</a></li>
+                                    <li><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi-26">Dragos Hatice Satoğlu Yaşam Evi</a>
                                 </ul>
                             </li>
                             <li><a href="http://www.freshdesignweb.com">GALERİ</a></li>
@@ -177,6 +177,8 @@
             auto: true,
             adaptiveHeight: false
         });
+
+        $('#flash-overlay-modal').modal();
 
         $('#carousel').bxSlider({
             slideMargin: 5,

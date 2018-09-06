@@ -64,4 +64,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.extraAllowedContent = 'div(*), i(*)';
 
+    config.protectedSource.push( /<i class[\s\S]*?\>/g );
+    config.protectedSource.push( /<\/i>/g );
+
 };

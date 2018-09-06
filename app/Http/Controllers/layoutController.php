@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Articles_con;
 use App\Categories_con;
+use App\Mail\bizeulasin;
+use App\Mail\telefonugonder;
 use App\Slider;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Laracasts\Flash\Flash;
 
 class layoutController extends Controller
 {
@@ -72,4 +77,55 @@ class layoutController extends Controller
             return abort(404);
         }
     }
+
+    public function getUlasimFormu() {
+        SEOMeta::setTitle('Huzurevi - Bakımevi Ulaşım Formu');
+        SEOMeta::setDescription('İstanbul Huzurevi - Bakımevi ulaşım formu');
+        SEOMeta::addKeyword(['ulasim', 'formu', 'bakimevi']);
+        OpenGraph::setTitle('Huzurevi - Bakımevi Ulaşım Formu');
+        OpenGraph::setDescription('İstanbul Huzurevi - Bakımevi ulaşım formu');
+
+        return view('ulasim-formu');
+    }
+
+    public function postUlasimFormu(Request $r) {
+        $r->validate([
+            'name'  => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'mesaj' => 'required'
+        ]);
+
+        try {
+            $_mail = new bizeulasin($r);
+            $_mail->replyTo($r->email);
+            Mail::to('kokserdal@gmail.com')->send($_mail);
+            }
+        catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
+
+        return Redirect::back();
+    }
+
+    public function postbeniAra(Request $r)
+    {
+        $r->validate([
+            'name'  => 'required',
+            'phone' => 'required'
+        ]);
+
+        try {
+            $_mail = new telefonugonder($r);
+            Mail::to('kokserdal@gmail.com')->send($_mail);
+        }
+        catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
+
+        Flash::overlay('Telefonunuz bize ulaştı, sizi en kısa süre içerisinde arayacağız.', 'Teşekkürler');
+        return Redirect::back();
+
+    }
+
 }

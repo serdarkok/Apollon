@@ -20,19 +20,20 @@
             <img src="/images/bilgi-1.png" class="img-responsive center-block" />
             <div class="send-number">
                 <h4>Telefonunuzu gönderin sizi arayalım...</h4>
-                <form method="post" action="#">
+                <form method="post" action="/">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="İsim Soyisim">
+                        <input type="text" class="form-control" id="name" placeholder="İsim Soyisim" name="name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Telefon">
+                        <input type="text" class="form-control" id="phone" placeholder="Telefon" name="phone">
                     </div>
                     <button type="submit" class="btn btn-success btn-sm btn-block">Gönder</button>
                 </form>
             </div>
         </div>
 
-    <img src="/images/ulasim-formu.png" class="img-responsive" />
+    <a href="/ulasim-formu"><img src="/images/ulasim-formu.png" class="img-responsive" /></a>
 
     <div class="main-box">
         <div class="head-box">FOTOĞRAFLAR İLE BİZ</div>

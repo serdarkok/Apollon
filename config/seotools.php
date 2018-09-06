@@ -9,7 +9,7 @@ return [
             'title'        => "Doğa Huzurevi ve Bakımevi - İstanbul", // set false to total remove
             'description'  => 'İstanbul\'da bulunan 3 şubemizde 55 yaş üzeri kişilerin huzurlu, güvenli ve sağlıklı bir şekilde misafir etmekteyiz.', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => [huzurevi, istanbul, bakimevi, yasli, klinik, beslenme, doktor, istanbulda, yaslievi, kadikoy, sancaktepe],
+            'keywords'     => ['huzurevi', 'istanbul', 'bakimevi', 'yasli', 'klinik', 'beslenme', 'doktor', 'istanbulda', 'yaslievi', 'kadikoy', 'sancaktepe'],
             'canonical'    => false, // Set null for using Url::current(), set false to total remove
         ],
 

@@ -111,8 +111,10 @@ return [
         'language' => 'Site Dili',
         'category_name' => 'Kategori Adı',
         'category_slug' => 'Kategori Kısa Adı',
-        'category_lang_id' => 'Dil'
-
+        'category_lang_id' => 'Dil',
+        'phone' => 'Telefon',
+        'name' => 'İsim Soyisim',
+        'mesaj' => 'Mesaj'
     ],
 
 ];

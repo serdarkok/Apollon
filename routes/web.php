@@ -13,6 +13,8 @@
 
 Route::get('/', ['as' => 'homepage', 'uses' => 'layoutController@getHomePage']);
 
+Route::post('/', ['as' => 'beniaraPost', 'uses' => 'layoutController@postbeniAra']);
+
 /* Route::get('/', function () {
     return view('homepage');
 });
@@ -25,6 +27,9 @@ Route::get('/info', function (){
 Route::get('/deneme', function () {
     return view('subpage');
 });
+
+Route::get('/ulasim-formu', ['as' => 'getUlasimFormu', 'uses' => 'layoutController@getUlasimFormu']);
+Route::post('/ulasim-formu', ['as' => 'postUlasimFormu', 'uses' => 'layoutController@postUlasimFormu']);
 
 Route::get('/page/{category}/{article}', ['as' => 'getArticle', 'uses' => 'layoutController@getArticle']);
 
