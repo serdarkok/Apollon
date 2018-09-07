@@ -57,39 +57,45 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="blog-contaier">
-                            <img src="/images/s1.jpg" class="img-responsive" />
-                            <div class="blog-desc">Sağlıklı beslenmek Alzaymır (Alzheimer)'ı engelliyor mu?</div>
-                            <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                            <a href="/page/blog/saglikli-beslenmek-alzheimeri-engelliyor-mu-28">
+                                <img src="/images/s1.jpg" class="img-responsive" />
+                                <div class="blog-desc">Sağlıklı beslenmek Alzaymır (Alzheimer)'ı engelliyor mu?</div>
+                                <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <img src="/images/s2.jpg" class="img-responsive mar-b" />
                                     <div class="blog-desc font-12">Teknoloji sadece gençler için mi?</div>
                                     <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-xs-6">
                                 <div class="blog-contaier">
-                                    <img src="/images/s3.jpg" class="img-responsive mar-b" />
-                                    <div class="blog-desc font-12">İleri yaşlarda mutlu birliktelikler</div>
-                                    <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    <a href="/page/blog/ileri-yaslarda-mutlu-bir-yasamin-sirlari-10">
+                                        <img src="/images/s3.jpg" class="img-responsive mar-b" />
+                                        <div class="blog-desc font-12">İleri yaşlarda mutlu birliktelikler</div>
+                                        <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <img src="/images/s4.jpg" class="img-responsive mar-b" />
                                     <div class="blog-desc font-12">Unutkanlık aşılabilir bir durum...</div>
                                     <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-xs-6">
                                 <div class="blog-contaier">
-                                    <img src="/images/s2.jpg" class="img-responsive mar-b" />
-                                    <div class="blog-desc font-12">Türkiye'nin mutluluk grafiği...</div>
-                                    <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    <a href="/page/blog/turkiyenin-mutluluk-grafigi-11">
+                                        <img src="/images/s2.jpg" class="img-responsive mar-b" />
+                                        <div class="blog-desc font-12">Türkiye'nin mutluluk grafiği...</div>
+                                        <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

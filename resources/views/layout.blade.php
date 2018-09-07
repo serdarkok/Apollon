@@ -7,13 +7,21 @@
     {!! SEO::generate() !!}
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/app.js"></script>
     <script src="/js/bxslider.js"></script>
     <script src="/js/site.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/pushy.css">
     <link href="/css/text.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124180368-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124180368-2');
+    </script>
 </head>
 <body>
 @include('flash::message')
@@ -21,19 +29,18 @@
     <div class="pushy-content">
         <ul>
             <li class="pushy-link">
-                <a href="#">ANA SAYFA</a>
+                <a href="/">ANA SAYFA</a>
             </li>
             <li class="pushy-submenu">
                 <button>DOĞA HAKKINDA</button>
                 <ul>
-                    <li class="pushy-link"><a href="#">Yaşlı Bakım Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Sağlık Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Medikal Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Doktor Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Hemşirelik Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Refakat Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Klinik Beslenme</a></li>
+                    <li class="pushy-link"><a href="/page/doga/hakkimizda-20">Hakkımızda</a></li>
+                    <li class="pushy-link"><a href="/page/doga/felsefe-ve-ilkelerimiz-21">Felsefe ve İlkelerimiz</a></li>
+                    <li class="pushy-link"><a href="/page/doga/misyonumuz-ve-vizyonumuz-22">Misyonumuz ve Vizyonumuz</a></li>
+                    <li class="pushy-link"><a href="/page/doga/kadromuz">Kadromuz</a></li>
+                    <li class="pushy-link"><a href="/page/doga/cozum-ortaklarimiz">Çözüm Ortaklarımız</a></li>
+                    <li class="pushy-link"><a href="/page/doga/sizden-gelenler">Sizden Gelenler</a></li>
+                    <li class="pushy-link"><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>
                 </ul>
             </li>
             <li class="pushy-link">
@@ -42,26 +49,26 @@
             <li class="pushy-submenu">
                 <button>HİZMETLERİMİZ</button>
                 <ul>
-                    <li class="pushy-link"><a href="#">Yaşlı Bakım Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Sağlık Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Medikal Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Doktor Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Hemşirelik Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Yaşlı Refakat Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="#">Klinik Beslenme</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-bakim-hizmetleri-12">Yaşlı Bakım Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-medikal-hizmetleri-15">Yaşlı Medikal Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-doktor-hizmetleri-16">Yaşlılar İçin Doktor Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-hemsirelik-hizmetleri-17">Yaşlılar İçin Hemşirelik Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-refakat-hizmetleri-18">Yaşlılar İçin Refakat Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-klinik-beslenme-19">Klinik Beslenme</a></li>
                 </ul>
             </li>
             <li class="pushy-submenu">
                 <button>ŞUBELERİMİZ</button>
                 <ul>
-                    <li class="pushy-link"><a href="#">Sancaktepe Yaşlı Bakım Merkezi</a></li>
-                    <li class="pushy-link"><a href="#">Kızıltoprak Klinik Evi</a></li>
-                    <li class="pushy-link"><a href="#">Dragos Hatice Satoğlu Yaşam Evi</a></li>
+                    <li class="pushy-link"><a href="/page/subelerimiz/sancaktepe-yasli-bakim-merkezi-24">Sancaktepe Yaşlı Bakım Merkezi</a></li>
+                    <li class="pushy-link"><a href="/page/subelerimiz/kiziltoprak-klinik-evi-25">Kızıltoprak Klinik Evi</a></li>
+                    <li class="pushy-link"><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi-26">Dragos Hatice Satoğlu Yaşam Evi</a>
                 </ul>
             </li>
-            <li class="pushy-link"><a href="#">GALERİ</a></li>
-            <li class="pushy-link"><a href="#">İLETİŞİM</a></li>
+            <li class="pushy-link"><a href="/page/doga/under-construction">GALERİ</a></li>
+            <li class="pushy-link"><a href="/page/doga/under-construction">İLETİŞİM</a></li>
         </ul>
     </div>
 </nav>
@@ -72,7 +79,7 @@
 <div class="container">
         <div class="col-md-3 col-md-offset-9 col-xs-6 col-xs-offset-3">
             <div class="right-square">
-                <img src="/images/724canli.png" class="img-responsive" style="padding: 5px 10px 5px 10px;" />
+                <a href="/page/doga/7-24-canli-izle-27" target="_blank"><img src="/images/724canli.png" class="img-responsive" style="padding: 5px 10px 5px 10px;" /></a>
             </div>
         </div>
 </div>
@@ -81,10 +88,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-xs-6">
-                <img src="/images/logo.png" class="img-responsive logo" style="position: absolute;" />
+                <a href="/"><img src="/images/logo.png" class="img-responsive logo" style="position: absolute;" /></a>
             </div>
             <div class="col-md-9 col-xs-6 text-right">
-                <button class="menu-btn visible-xs"><i class="fa fa-bars fa-2x"></i> </button>
+                <button class="btn btn-primary-outline menu-btn visible-xs"><i class="fa fa-bars fa-2x"></i> </button>
                 <!-- Menü -->
                 <div id="fdw">
                     <!--nav-->
@@ -109,19 +116,18 @@
                                 <a href="#">HİZMETLERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
-                                    <li><a href="#">Yaşlı Bakım Hizmetleri</a></li>
-                                    <li><a href="#">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
-                                    <li><a href="#">Yaşlı Sağlık Hizmetleri</a></li>
-                                    <li><a href="#">Yaşlı Medikal Hizmetleri</a></li>
-                                    <li><a href="#">Yaşlı Doktor Hizmetleri</a></li>
-                                    <li><a href="#">Yaşlı Hemşirelik Hizmetleri</a></li>
-                                    <li><a href="#">Yaşlı Refakat Hizmetleri</a></li>
-                                    <li><a href="#">Klinik Beslenme</a></li>
-                                    <li><a href="#">7/24 Canlı Yayın</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yasli-bakim-hizmetleri-12">Yaşlı Bakım Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yasli-medikal-hizmetleri-15">Yaşlı Medikal Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-doktor-hizmetleri-16">Yaşlılar İçin Doktor Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-hemsirelik-hizmetleri-17">Yaşlılar İçin Hemşirelik Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-refakat-hizmetleri-18">Yaşlılar İçin Refakat Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-klinik-beslenme-19">Klinik Beslenme</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="http://www.freshdesignweb.com">ŞUBELERİMİZ</a>
+                                <a href="#">ŞUBELERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
                                     <li><a href="/page/subelerimiz/sancaktepe-yasli-bakim-merkezi-24">Sancaktepe Yaşlı Bakım Merkezi</a></li>
@@ -129,8 +135,8 @@
                                     <li><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi-26">Dragos Hatice Satoğlu Yaşam Evi</a>
                                 </ul>
                             </li>
-                            <li><a href="http://www.freshdesignweb.com">GALERİ</a></li>
-                            <li><a href="http://www.freshdesignweb.com">İLETİŞİM</a></li>
+                            <li><a href="/page/doga/under-construction">GALERİ</a></li>
+                            <li><a href="/page/doga/under-construction">İLETİŞİM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -194,5 +200,6 @@
         });
     });
 </script>
+<script src="/js/app.js"></script>
 </body>
 </html>

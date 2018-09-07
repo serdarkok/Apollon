@@ -17,7 +17,7 @@
                 </div>
             </div>
             <hr />
-            <img src="/images/bilgi-1.png" class="img-responsive center-block" />
+            <a href="tel:02166213333"><img src="/images/bilgi-1.png" class="img-responsive center-block" /></a>
             <div class="send-number">
                 <h4>Telefonunuzu gönderin sizi arayalım...</h4>
                 <form method="post" action="/">
@@ -53,11 +53,11 @@
         <div class="head-box">FAYDALI LİNKLER</div>
         <div class="body-box">
             <ul class="links">
-                <li><a href="">Sağlık Bakanlığı</a></li>
-                <li><a href=""><p>İstanbul Aile ve Sosyal Politikalar İl Müdürlüğü</p></a></li>
-                <li> <a href="">Aile ve Sosyal Politikalar Bakanlığı</a></li>
-                <li><a href="">İstanbul Hastaneleri</a></li>
-                <li><a href="">Nöbetçi Eczaneler</a></li>
+                <li><a href="https://www.saglik.gov.tr" target="_blank">Sağlık Bakanlığı</a></li>
+                <li><a href="https://istanbul.aile.gov.tr/" target="_blank">İstanbul Aile ve Sosyal Politikalar İl Müdürlüğü</a></li>
+                <li> <a href="https://istanbul.aile.gov.tr/" target="_blank">Aile ve Sosyal Politikalar Bakanlığı</a></li>
+                <li><a href="https://www.hastane.com.tr/istanbul-hastaneleri.html" target="_blank">İstanbul Hastaneleri</a></li>
+                <li><a href="https://www.istanbuleczaciodasi.org.tr/nobetci-eczane/" target="_blank">Nöbetçi Eczaneler</a></li>
             </ul>
         </div>
     </div>
