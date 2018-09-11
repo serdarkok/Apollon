@@ -68,7 +68,7 @@
                 </ul>
             </li>
             <li class="pushy-link"><a href="/page/doga/under-construction">GALERİ</a></li>
-            <li class="pushy-link"><a href="/page/doga/under-construction">İLETİŞİM</a></li>
+            <li class="pushy-link"><a href="/page/doga/huzurevi-iletisim-29">İLETİŞİM</a></li>
         </ul>
     </div>
 </nav>
@@ -136,7 +136,7 @@
                                 </ul>
                             </li>
                             <li><a href="/page/doga/under-construction">GALERİ</a></li>
-                            <li><a href="/page/doga/under-construction">İLETİŞİM</a></li>
+                            <li><a href="/page/doga/huzurevi-iletisim-29">İLETİŞİM</a></li>
                         </ul>
                     </nav>
                 </div>
