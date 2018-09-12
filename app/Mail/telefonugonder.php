@@ -30,7 +30,7 @@ class telefonugonder extends Mailable
      */
     public function build()
     {
-        return $this->from('serdar@iksirweb.com', 'Serdar Kök')
+        return $this->from('info@huzurevi.com.tr', 'Huzurevi WEB')
             ->subject('Beni Ara')
             ->view('mails.beni-ara');
     }

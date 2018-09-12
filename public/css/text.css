@@ -439,7 +439,7 @@ p {
 }
 
 .links li:before {
-    font-family: FontAwesome;
+    font-family: fontawesome;
     content: "\f105";
     padding-right: 5px;
     float: left;

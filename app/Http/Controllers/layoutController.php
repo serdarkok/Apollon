@@ -99,7 +99,7 @@ class layoutController extends Controller
         try {
             $_mail = new bizeulasin($r);
             $_mail->replyTo($r->email);
-            Mail::to('kokserdal@gmail.com')->send($_mail);
+            Mail::to('info@huzurevi.com.tr')->cc('kokserdal@gmail.com')->send($_mail);
             }
         catch (\Exception $e) {
             return abort(500, $e->getMessage());
@@ -117,7 +117,7 @@ class layoutController extends Controller
 
         try {
             $_mail = new telefonugonder($r);
-            Mail::to('kokserdal@gmail.com')->send($_mail);
+            Mail::to('info@huzurevi.com.tr')->cc('kokserdal@gmail.com')->send($_mail);
         }
         catch (\Exception $e) {
             return abort(500, $e->getMessage());

@@ -33,7 +33,7 @@ class bizeulasin extends Mailable
      */
     public function build()
     {
-        return $this->from('serdar@iksirweb.com', 'Serdar Kök')
+        return $this->from('info@huzurevi.com.tr', 'Huzurevi WEB')
             ->subject('Ulaşım Formu')
             ->view('mails.bize-ulasin');
     }
