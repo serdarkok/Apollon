@@ -412,11 +412,6 @@ p {
     text-underline-color: #484848;
 }
 
-.random-article p {
-    line-height: 117%;
-    margin: 5px 0 0 0;
-}
-
 .font-12 {
     font-size: 12px !important;
     padding: 13px 5px 0px 5px;

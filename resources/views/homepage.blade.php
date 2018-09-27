@@ -8,6 +8,11 @@
 ?>
 @extends('layout')
 
+@section('header')
+    <script src="/js/bxslider.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+@endsection
+
 @section('slider')
 
 @endsection
@@ -57,9 +62,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="blog-contaier">
-                            <a href="/page/blog/saglikli-beslenmek-alzheimeri-engelliyor-mu-28">
-                                <img src="/images/s1.jpg" class="img-responsive" />
-                                <div class="blog-desc">Sağlıklı beslenmek Alzaymır (Alzheimer)'ı engelliyor mu?</div>
+                            <a href="/page/blog/huzurevi-ve-bakimevi-fiyatlari-31">
+                                <img src="/uploads/images/31_7070745.jpg" class="img-responsive" />
+                                <div class="blog-desc">Huzurevi ve Bakımevi fiyatları nelerdir?</div>
                                 <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                             </a>
                         </div>
@@ -68,15 +73,17 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
-                                    <img src="/images/s2.jpg" class="img-responsive mar-b" />
-                                    <div class="blog-desc font-12">Teknoloji sadece gençler için mi?</div>
-                                    <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    <a href="/page/blog/saglikli-beslenmek-alzheimeri-engelliyor-mu-28">
+                                        <img src="/uploads/images/28_6342334.jpg" class="img-responsive mar-b" />
+                                        <div class="blog-desc font-12">Sağlıklı beslenmek Alzaymır (Alzheimer)'ı engelliyor mu?</div>
+                                        <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <a href="/page/blog/ileri-yaslarda-mutlu-bir-yasamin-sirlari-10">
-                                        <img src="/images/s3.jpg" class="img-responsive mar-b" />
+                                        <img src="/uploads/images/10_3866378.jpg" class="img-responsive mar-b" />
                                         <div class="blog-desc font-12">İleri yaşlarda mutlu birliktelikler</div>
                                         <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                     </a>
@@ -92,7 +99,7 @@
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <a href="/page/blog/turkiyenin-mutluluk-grafigi-11">
-                                        <img src="/images/s2.jpg" class="img-responsive mar-b" />
+                                        <img src="/uploads/images/11_9060118.jpg" class="img-responsive mar-b" />
                                         <div class="blog-desc font-12">Türkiye'nin mutluluk grafiği...</div>
                                         <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                     </a>

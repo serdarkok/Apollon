@@ -114,7 +114,9 @@ return [
         'category_lang_id' => 'Dil',
         'phone' => 'Telefon',
         'name' => 'İsim Soyisim',
-        'mesaj' => 'Mesaj'
+        'mesaj' => 'Mesaj',
+        'tecrubeler' => 'Tecrübeler',
+        'pozisyon' => 'Pozisyon'
     ],
 
 ];

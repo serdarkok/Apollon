@@ -43,6 +43,8 @@ return [
         '/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi.html' => '/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13',
         '/hizmetlerimiz/huzurevi-bakimevi-canli-izle.html' => '/page/doga/7-24-canli-izle-27',
         '/iletisim.html' => '/page/doga/huzurevi-iletisim-29',
+        '/iletisim/is-basvuru-formu.html' => '/insan-kaynaklari',
+        '/konum-ve-iletisim.html?id=47' => '/page/doga/huzurevi-iletisim-29'
     ],
 
 ];

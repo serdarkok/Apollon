@@ -7,10 +7,9 @@
     {!! SEO::generate() !!}
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/bxslider.js"></script>
+    @yield('header')
     <script src="/js/site.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/fonts.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/pushy.css">
     <link href="/css/text.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -37,10 +36,10 @@
                     <li class="pushy-link"><a href="/page/doga/hakkimizda-20">Hakkımızda</a></li>
                     <li class="pushy-link"><a href="/page/doga/felsefe-ve-ilkelerimiz-21">Felsefe ve İlkelerimiz</a></li>
                     <li class="pushy-link"><a href="/page/doga/misyonumuz-ve-vizyonumuz-22">Misyonumuz ve Vizyonumuz</a></li>
-                    <li class="pushy-link"><a href="/page/doga/kadromuz">Kadromuz</a></li>
-                    <li class="pushy-link"><a href="/page/doga/cozum-ortaklarimiz">Çözüm Ortaklarımız</a></li>
+                    <li class="pushy-link"><a href="/insan-kaynaklari">İş Başvurusu</a></li>
+{{--                    <li class="pushy-link"><a href="/page/doga/cozum-ortaklarimiz">Çözüm Ortaklarımız</a></li>
                     <li class="pushy-link"><a href="/page/doga/sizden-gelenler">Sizden Gelenler</a></li>
-                    <li class="pushy-link"><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>
+                    <li class="pushy-link"><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>--}}
                 </ul>
             </li>
             <li class="pushy-link">
@@ -105,10 +104,10 @@
                                     <li><a href="/page/doga/hakkimizda-20">Hakkımızda</a></li>
                                     <li><a href="/page/doga/felsefe-ve-ilkelerimiz-21">Felsefe ve İlkelerimiz</a></li>
                                     <li><a href="/page/doga/misyonumuz-ve-vizyonumuz-22">Misyonumuz ve Vizyonumuz</a></li>
-                                    <li><a href="/page/doga/kadromuz">Kadromuz</a></li>
-                                    <li><a href="/page/doga/cozum-ortaklarimiz">Çözüm Ortaklarımız</a></li>
+                                    <li><a href="/insan-kaynaklari">İş Başvurusu</a></li>
+{{--                                    <li><a href="/page/doga/cozum-ortaklarimiz">Çözüm Ortaklarımız</a></li>
                                     <li><a href="/page/doga/sizden-gelenler">Sizden Gelenler</a></li>
-                                    <li><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>
+                                    <li><a href="/page/doga/basinda-doga">Basında DOĞA</a></li>--}}
                                 </ul>
                             </li>
                             <li><a href="/page/doga/doganin-farki-23">DOĞA'NIN FARKI</a></li>
@@ -198,6 +197,29 @@
             nextText: '<img src="/images/sag.png" />',
             pager: false
         });
+    });
+
+    var popupSize = {
+        width: 780,
+        height: 550
+    };
+
+    $(document).on('click', '.social-buttons > a', function(e){
+
+        var
+            verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
+            horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
+
+        var popup = window.open($(this).prop('href'), 'social',
+            'width='+popupSize.width+',height='+popupSize.height+
+            ',left='+verticalPos+',top='+horisontalPos+
+            ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+
+        if (popup) {
+            popup.focus();
+            e.preventDefault();
+        }
+
     });
 </script>
 <script src="/js/app.js"></script>

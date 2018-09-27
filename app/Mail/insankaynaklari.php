@@ -6,11 +6,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class telefonugonder extends Mailable
+class insankaynaklari extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name, $phone;
+    public $name, $phone, $email, $sube, $tecrubeler, $pozisyon;
     /**
      * Create a new message instance.
      *
@@ -20,6 +20,10 @@ class telefonugonder extends Mailable
     {
         $this->name = $r->name;
         $this->phone = $r->phone;
+        $this->email = $r->email;
+        $this->sube = $r->sube;
+        $this->tecrubeler = $r->tecrubeler;
+        $this->pozisyon = $r->pozisyon;
     }
 
     /**
@@ -30,7 +34,7 @@ class telefonugonder extends Mailable
     public function build()
     {
         return $this->from('info@huzurevi.com.tr', 'Huzurevi WEB')
-            ->subject('Beni Ara')
-            ->view('mails.beni-ara');
+            ->subject('İş Başvuru Formu')
+            ->view('mails.insan-kaynaklari');
     }
 }

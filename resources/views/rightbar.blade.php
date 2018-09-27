@@ -49,6 +49,13 @@
         </div>
     </div>
 
+{{--    <div class="main-box">
+        <div class="head-box">İSTATİSTİKLER</div>
+        <ul>
+            <li>Bugün  ziyaret edenler: {{ $post->getViewsUpto(\Carbon\Carbon::create(2016)) }}</li>
+        </ul>
+    </div>--}}
+
     <div class="main-box">
         <div class="head-box">FAYDALI LİNKLER</div>
         <div class="body-box">

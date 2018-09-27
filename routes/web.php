@@ -28,6 +28,9 @@ Route::get('/deneme', function () {
     return view('subpage');
 });
 
+Route::get('/insan-kaynaklari', ['as' => 'getIsbasvurusu', 'uses' => 'layoutController@getIsbasvurusu']);
+Route::post('/insan-kaynaklari', ['as' => 'postIsbasvurusu', 'uses' => 'layoutController@postIsbasvurusu']);
+
 Route::get('/ulasim-formu', ['as' => 'getUlasimFormu', 'uses' => 'layoutController@getUlasimFormu']);
 Route::post('/ulasim-formu', ['as' => 'postUlasimFormu', 'uses' => 'layoutController@postUlasimFormu']);
 
