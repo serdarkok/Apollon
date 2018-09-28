@@ -48,6 +48,7 @@
             <li class="pushy-submenu">
                 <button>HİZMETLERİMİZ</button>
                 <ul>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/alzheimer-hastalarina-bakim-evi-33">Alzheimer Hastalarına Bakımevi</a></li>
                     <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-bakim-hizmetleri-12">Yaşlı Bakım Hizmetleri</a></li>
                     <li class="pushy-link"><a href="/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
                     <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık Hizmetleri</a></li>
@@ -115,6 +116,7 @@
                                 <a href="#">HİZMETLERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
+                                    <li><a href="/page/hizmetlerimiz/alzheimer-hastalarina-bakim-evi-33">Alzheimer Hastalarına Bakımevi</a></li>
                                     <li><a href="/page/hizmetlerimiz/yasli-bakim-hizmetleri-12">Yaşlı Bakım Hizmetleri</a></li>
                                     <li><a href="/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
                                     <li><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık Hizmetleri</a></li>

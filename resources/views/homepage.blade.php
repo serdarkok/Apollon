@@ -91,9 +91,11 @@
                             </div>
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
-                                    <img src="/images/s4.jpg" class="img-responsive mar-b" />
-                                    <div class="blog-desc font-12">Unutkanlık aşılabilir bir durum...</div>
-                                    <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    <a href="/page/blog/parkinson-nedir-32">
+                                        <img src="/uploads/images/32_9361019.jpg" class="img-responsive mar-b" />
+                                        <div class="blog-desc font-12">Parkison nedir ve tedavileri nelerdir...</div>
+                                        <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-xs-6">

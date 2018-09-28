@@ -88,6 +88,7 @@ class layoutController extends Controller
             OpenGraph::addImage(url('/').'/uploads/images/'.$_->art_image);
             OpenGraph::setDescription($_->art_description);
             OpenGraph::setUrl(\URL::full());
+            OpenGraph::setType('website');
 
             return view('subpage', ['article' => $_, 'random_article' => $__ ]);
         }
