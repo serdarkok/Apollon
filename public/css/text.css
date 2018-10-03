@@ -337,6 +337,7 @@ p {
     border-left: 1px solid #DADADA;
     padding: 5px;
     margin-right: 0px !important;
+    width: 238px !important;
 }
 
 .carousel li:nth-last-child(1) {
@@ -433,6 +434,10 @@ p {
 }
 
 /* --- right panel --- */
+.bilgi-icin{
+    width: 80%;
+}
+
 .right-square {
     background-color: #FFFFFF;
     border: 1px solid #DADADA;
@@ -735,5 +740,10 @@ hr {
     .sub-head-image
     {
         width: 100%;
+    }
+
+    .sol-sag {
+        top: 0px;
+        right: 10px;
     }
 }

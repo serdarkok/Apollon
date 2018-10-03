@@ -10,7 +10,7 @@
 
 @section('header')
     <script src="/js/bxslider.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="/css/bxslider.css">
 @endsection
 
 @section('slider')
@@ -34,6 +34,34 @@
                             @endif
                         </div>
                     @endforeach
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="right-square slider-top visible-xs" style="margin-bottom: 10px;">
+                    <div style="position:relative; height: 27px;">
+                        <div class="social-button">
+                            <a href=""><img src="/images/social/facebook.png" /></a>
+                            <a href=""><img src="/images/social/twitter.png" /></a>
+                            <a href=""><img src="/images/social/instagram.png" /></a>
+                            <a href=""><img src="/images/social/youtube.png" /></a>
+                        </div>
+                    </div>
+                    <hr />
+                    <a href="tel:02166213333"><img src="/images/bilgi-1.png" class="img-responsive center-block bilgi-icin" /></a>
+                    <div class="send-number">
+                        <h4>Telefonunuzu gönderin sizi arayalım...</h4>
+                        <form method="post" action="/">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="İsim Soyisim" name="name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="phone" placeholder="Telefon" name="phone">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-sm btn-block">Gönder</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -112,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12 line-flat">
+            <div class="col-md-12 line-flat hidden-xs">
                 <h3>DİĞER BİLGİLER</h3>
                 <div class="row">
                     <div class="col-md-4"><img src="/images/subelerimiz-footer.png" class="img-responsive"></div>

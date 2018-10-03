@@ -182,19 +182,23 @@
     $(document).ready(function(){
         $('.slider').bxSlider({
             auto: true,
-            adaptiveHeight: false
+            mode: 'horizontal',
+            adaptiveHeight: false,
+            controls: true,
+            preventDefaultSwipeY: true
         });
 
         $('#flash-overlay-modal').modal();
 
         $('#carousel').bxSlider({
             slideMargin: 5,
-            autoReload: true,
             auto: true,
-            breaks: [{screen:0, slides:2, pager:false, controls:true},{screen:460, slides:2},{screen:768, slides:3},{screen:300, slides:1}],
+            breaks: [{screen:0, maxslides:2, pager:false, controls:true},{screen:460, maxslides:1},{screen:768, maxslides:3},{screen:300, maxslides:1}],
             keyboardEnabled: true,
+            preventDefaultSwipeY: true,
             nextSelector: '#right-hizmet',
             prevSelector: '#left-hizmet',
+            oneToOneTouch: false,
             prevText: '<img src="/images/sol.png" />',
             nextText: '<img src="/images/sag.png" />',
             pager: false

@@ -61,7 +61,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-orange btn-sm" style="padding: 5px 20px 5px 20px;">Gönder</button>
+                        <button type="submit" class="btn btn-orange btn-sm" style="padding: 5px 20px 5px 20px;">Gönder</button> <br/>
+                        <div class="help-block">Uyarı: Buradan gönderilen iş başvuruları dikkate alınmamaktadır, iş başvuruları için lütfen <a href="/insan-kaynaklari">insan kaynakları formunu</a> doldurunuz</div>
                     </div>
                 </div>
             </form>

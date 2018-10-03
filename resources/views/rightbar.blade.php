@@ -7,7 +7,7 @@
  */
 ?>
 <div class="col-md-3">
-        <div class="right-square slider-top" style="margin-bottom: 10px;">
+        <div class="right-square slider-top hidden-xs" style="margin-bottom: 10px;">
             <div style="position:relative; height: 27px;">
                 <div class="social-button">
                     <a href=""><img src="/images/social/facebook.png" /></a>
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <hr />
-            <a href="tel:02166213333"><img src="/images/bilgi-1.png" class="img-responsive center-block" /></a>
+            <a href="tel:02166213333"><img src="/images/bilgi-1.png" class="img-responsive center-block bilgi-icin" /></a>
             <div class="send-number">
                 <h4>Telefonunuzu gönderin sizi arayalım...</h4>
                 <form method="post" action="/">

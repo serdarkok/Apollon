@@ -23,7 +23,7 @@
     }
 </style>
 
-<h3>Aşağıda bilgileri olan {{ $name }}, telefon beklemektedir. Web sitesi üzerinden telefonunu bırakarmıştır.</h3>
+<h3>Aşağıda bilgileri olan {{ $name }}, telefon beklemektedir. Web sitesi üzerinden telefonunu bırakmıştır.</h3>
 <table style="border: 1px solid #DFDFDF; font-size: 14px;">
     <tr>
         <td>İsim Soyisim</td>
