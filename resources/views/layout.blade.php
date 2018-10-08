@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, follow">
     {!! SEO::generate() !!}
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
@@ -172,6 +173,9 @@
                         <li>ŞUBELERİMİZ</li>
                         <li>İLETİŞİM</li>
                     </ul>
+                </div>
+                <div class="col-md-6 col-md-offset-3 site-owner text-center">
+                    Site Tasarım ve Programlama<br/> <a href="mailto: kokserdal@gmail.com">Serdar Kök</a>
                 </div>
             </div>
         </div>

@@ -676,6 +676,16 @@ p {
     content: "|";
 }
 
+.site-owner {
+    color: #a8a8a8;
+    font-size: 11px;
+}
+
+.site-owner a, .site-owner a:hover {
+    color: #a8a8a8;
+    font-size: 11px;
+}
+
 hr {
     margin-top: 5px;
     margin-bottom: 5px;
