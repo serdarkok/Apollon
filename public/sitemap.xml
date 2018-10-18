@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
 <url>
   <loc>https://www.huzurevi.com.tr/</loc>
   <lastmod>2018-09-26T07:52:23+00:00</lastmod>
@@ -132,6 +130,11 @@
     <loc>https://www.huzurevi.com.tr/page/hizmetlerimiz/alzheimer-hastalarina-bakim-evi-33</loc>
     <lastmod>2018-09-28T08:52:23+00:00</lastmod>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.huzurevi.com.tr/page/blog/ms-hastaligi-nedir-34</loc>
+    <lastmod>2018-10-18T15:25:23+00:00</lastmod>
+    <priority>0.90</priority>
   </url>
 <url>
   <loc>https://www.huzurevi.com.tr/ulasim-formu</loc>
