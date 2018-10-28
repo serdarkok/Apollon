@@ -25,7 +25,7 @@
                             @if($item->slider_link)
                                 <a href="/page/{{$item->cat_id}}/{{ $item->slider_link }}-{{ $item->art_id }}">
                                     @endif
-                                    <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                                    <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" alt="{{ $item->art_name }}" />
                                     <div class="slider-desc">
                                         {{ $item->art_name }}
                                     </div>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <hr />
-                    <a href="tel:02166213333"><img src="/images/bilgi-1.png" class="img-responsive center-block bilgi-icin" /></a>
+                    <a href="tel:02166213333"><img src="/images/bilgi-1.png" alt="bilgi" class="img-responsive center-block bilgi-icin" /></a>
                     <div class="send-number">
                         <h4>Telefonunuzu gönderin sizi arayalım...</h4>
                         <form method="post" action="/">
@@ -75,7 +75,7 @@
                     @foreach($hizmetler as $item)
                         <li>
                             <a href="/page/hizmetlerimiz/{{$item->art_slug}}-{{ $item->art_id }}" target="_blank">
-                                <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" />
+                                <img src="/uploads/images/{{ $item->art_image }}" class="img-responsive" alt="{{ $item->art_name }}" />
                             </a>
                             <span>{{ $item->art_name }}</span>
                             <p>{{ $item->art_abstract }}</p>
@@ -91,7 +91,7 @@
                     <div class="col-md-6">
                         <div class="blog-contaier">
                             <a href="/page/blog/huzurevi-ve-bakimevi-fiyatlari-31">
-                                <img src="/uploads/images/31_7070745.jpg" class="img-responsive" />
+                                <img src="/uploads/images/31_7070745.jpg" class="img-responsive" alt="Huzurevi ve Bakımevi fiyatları nelerdir" />
                                 <div class="blog-desc">Huzurevi ve Bakımevi fiyatları nelerdir?</div>
                                 <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                             </a>
@@ -102,7 +102,7 @@
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <a href="/page/blog/saglikli-beslenmek-alzheimeri-engelliyor-mu-28">
-                                        <img src="/uploads/images/28_6342334.jpg" class="img-responsive mar-b" />
+                                        <img src="/uploads/images/28_6342334.jpg" class="img-responsive mar-b" alt="Sağlıklı beslenmek Alzaymır" />
                                         <div class="blog-desc font-12">Sağlıklı beslenmek Alzaymır (Alzheimer)'ı engelliyor mu?</div>
                                         <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                     </a>
@@ -111,7 +111,7 @@
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <a href="/page/blog/ileri-yaslarda-mutlu-bir-yasamin-sirlari-10">
-                                        <img src="/uploads/images/10_3866378.jpg" class="img-responsive mar-b" />
+                                        <img src="/uploads/images/10_3866378.jpg" class="img-responsive mar-b" alt="İleri yaşlarda mutlu birliktelikler" />
                                         <div class="blog-desc font-12">İleri yaşlarda mutlu birliktelikler</div>
                                         <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                     </a>
@@ -120,7 +120,7 @@
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <a href="/page/blog/parkinson-nedir-32">
-                                        <img src="/uploads/images/32_9361019.jpg" class="img-responsive mar-b" />
+                                        <img src="/uploads/images/32_9361019.jpg" class="img-responsive mar-b" alt="Parkison nedir ve tedavileri"/>
                                         <div class="blog-desc font-12">Parkison nedir ve tedavileri nelerdir...</div>
                                         <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                     </a>
@@ -129,7 +129,7 @@
                             <div class="col-xs-6">
                                 <div class="blog-contaier">
                                     <a href="/page/blog/turkiyenin-mutluluk-grafigi-11">
-                                        <img src="/uploads/images/11_9060118.jpg" class="img-responsive mar-b" />
+                                        <img src="/uploads/images/11_9060118.jpg" class="img-responsive mar-b" alt="Türkiye'nin mutluluk grafiği" />
                                         <div class="blog-desc font-12">Türkiye'nin mutluluk grafiği...</div>
                                         <div class="arrow-next"><img src="/images/arrow-next-white.png"></div>
                                     </a>
@@ -143,9 +143,29 @@
             <div class="col-md-12 line-flat hidden-xs">
                 <h3>DİĞER BİLGİLER</h3>
                 <div class="row">
-                    <div class="col-md-4"><img src="/images/subelerimiz-footer.png" class="img-responsive"></div>
-                    <div class="col-md-4"><img src="/images/sizden-gelenler-footer.png" class="img-responsive"></div>
-                    <div class="col-md-4"><img src="/images/basinda-doga-footer.png" class="img-responsive"></div>
+                    <div class="col-md-4"><img src="/images/subelerimiz-footer.png" class="img-responsive" alt="Şubelerimiz"></div>
+                    <div class="col-md-4"><img src="/images/sizden-gelenler-footer.png" class="img-responsive" alt="Sizden Gelenler"></div>
+                    <div class="col-md-4"><img src="/images/basinda-doga-footer.png" class="img-responsive" alt="Basında Doğa"></div>
                 </div>
             </div>
+
+            <div class="modal fade" tabindex="-1" role="dialog" id="myModal" aria-labelledby="gridSystemModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Kapat"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <img src="/images/29ekim-doga.jpg" class="img-responsive" alt="29 Ekim Kutlaması" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(window).ready(function() {
+                    $('#myModal').modal('show');
+                });
+            </script>
 @endsection
