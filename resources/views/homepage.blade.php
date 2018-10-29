@@ -148,7 +148,7 @@
                     <div class="col-md-4"><img src="/images/basinda-doga-footer.png" class="img-responsive" alt="Basında Doğa"></div>
                 </div>
             </div>
-
+{{--
             <div class="modal fade" tabindex="-1" role="dialog" id="myModal" aria-labelledby="gridSystemModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -168,4 +168,5 @@
                     $('#myModal').modal('show');
                 });
             </script>
+            --}}
 @endsection
