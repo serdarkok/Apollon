@@ -6,6 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="index, follow">
     {!! SEO::generate() !!}
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
     @yield('header')
@@ -51,12 +64,12 @@
                     <li class="pushy-link"><a href="/page/hizmetlerimiz/alzheimer-hastalarina-bakim-evi-33">Alzheimer Hastalarına Bakımevi</a></li>
                     <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-bakim-hizmetleri-12">Yaşlı Bakım Hizmetleri</a></li>
                     <li class="pushy-link"><a href="/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
-                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-medikal-hizmetleri-15">Yaşlı Medikal Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-doktor-hizmetleri-16">Yaşlılar İçin Doktor Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-hemsirelik-hizmetleri-17">Yaşlılar İçin Hemşirelik Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-refakat-hizmetleri-18">Yaşlılar İçin Refakat Hizmetleri</a></li>
-                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yaslilar-icin-klinik-beslenme-19">Klinik Beslenme</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/yasli-medikal-hizmetleri-15">Yaşlı Medikal</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/huzurevi-doktor-hizmetleri-16">Huzurevi Doktor Hizmetleri</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/huzurevi-hemsirelik-17">Huzurevi Hemşirelik</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/huzurevi-refakatci-18">Huzurevi Refakatçi</a></li>
+                    <li class="pushy-link"><a href="/page/hizmetlerimiz/huzurevinde-klinik-beslenme-19">Huzurevinde Klinik Beslenme</a></li>
                 </ul>
             </li>
             <li class="pushy-submenu">
@@ -99,7 +112,7 @@
                         <ul>
                             <li><a href="/"><i class="fa fa-home"></i> </a>
                             </li>
-                            <li><a href="#">DOĞA HAKKINDA</a>
+                            <li><a href="/page/doga">DOĞA HAKKINDA</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
                                     <li><a href="/page/doga/hakkimizda-20">Hakkımızda</a></li>
@@ -113,7 +126,7 @@
                             </li>
                             <li><a href="/page/doga/doganin-farki-23">DOĞA'NIN FARKI</a></li>
                             <li>
-                                <a href="#">HİZMETLERİMİZ</a>
+                                <a href="/page/hizmetlerimiz">HİZMETLERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
                                     <li><a href="/page/hizmetlerimiz/alzheimer-hastalarina-bakim-evi-33">Alzheimer Hastalarına Bakımevi</a></li>
@@ -121,14 +134,14 @@
                                     <li><a href="/page/hizmetlerimiz/yogun-bakim-sonrasi-hasta-bakimi-13">Yoğun Bakım Sonrası Hasta Bakımı</a></li>
                                     <li><a href="/page/hizmetlerimiz/yasli-saglik-hizmetleri-14">Yaşlı Sağlık Hizmetleri</a></li>
                                     <li><a href="/page/hizmetlerimiz/yasli-medikal-hizmetleri-15">Yaşlı Medikal Hizmetleri</a></li>
-                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-doktor-hizmetleri-16">Yaşlılar İçin Doktor Hizmetleri</a></li>
-                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-hemsirelik-hizmetleri-17">Yaşlılar İçin Hemşirelik Hizmetleri</a></li>
-                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-refakat-hizmetleri-18">Yaşlılar İçin Refakat Hizmetleri</a></li>
-                                    <li><a href="/page/hizmetlerimiz/yaslilar-icin-klinik-beslenme-19">Klinik Beslenme</a></li>
+                                    <li><a href="/page/hizmetlerimiz/huzurevi-doktor-hizmetleri-16">Huzurevi Doktor Hizmetleri</a></li>
+                                    <li><a href="/page/hizmetlerimiz/huzurevi-hemsirelik-17">Huzurevi Hemşirelik</a></li>
+                                    <li><a href="/page/hizmetlerimiz/huzurevi-refakatci-18">Huzurevi Refakatçi</a></li>
+                                    <li><a href="/page/hizmetlerimiz/huzurevinde-klinik-beslenme-19">Huzurevinde Klinik Beslenme</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">ŞUBELERİMİZ</a>
+                                <a href="/page/subelerimiz">ŞUBELERİMİZ</a>
                                 <ul style="display: none;" class="sub_menu text-left">
                                     <li class="arrow_top"></li>
                                     <li><a href="/page/subelerimiz/sancaktepe-yasli-bakim-merkezi-24">Sancaktepe Yaşlı Bakım Merkezi</a></li>
@@ -166,11 +179,11 @@
             <div class="container">
                 <div class="col-md-12">
                     <ul class="footer-menu">
-                        <li>ANA SAYFA</li>
-                        <li>DOĞA HAKKINDA</li>
-                        <li>DOĞA'NIN FARKI</li>
-                        <li>ŞUBELERİMİZ</li>
-                        <li>İLETİŞİM</li>
+                        <li><a href="/">ANA SAYFA</a></li>
+                        <li><a href="/page/doga/hakkimizda-20">HAKKIMIZDA</a></li>
+                        <li><a href="/page/doga/doganin-farki-23">DOĞA'NIN FARKI</a></li>
+                        <li><a href="/page/subelerimiz/">ŞUBELERİMİZ</a></li>
+                        <li><a href="/page/doga/huzurevi-iletisim-29">İLETİŞİM</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-md-offset-3 site-owner text-center">

@@ -9,10 +9,53 @@ section {
 p {
     margin: 0 0 15px;
     line-height: 165%;
+    font-size: 17px;
+}
+
+.breadcrumb {
+    padding: 0px 1px;
+    list-style: none;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 11px;
+    margin: -13px -10px 10px -10px;
+    word-wrap: break-spaces;
 }
 
 .mar-b {
     margin-bottom: 6px;
+}
+
+.home-wrap {
+    background-color: #ffebdc;
+    color: #ff5e4e;
+    padding: 10px;
+}
+
+.home-wrap h1 {
+    font-size: 24px;
+    margin: 5px 0 5px 0;
+}
+
+.home-wrap h2 {
+    font-size: 17px;
+    font-style: italic;
+    margin: 5px 0 5px 0;
+    line-height: 30px;
+}
+
+.keyword {
+    display: inline;
+    float: left;
+    border: 1px solid #DFDFDF;
+    background-color: rgba(166,166,166,0.18);
+    padding: 3px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    clear: right;
+    border-radius: 5px;
+    color: #4f5362;
 }
 
 
@@ -302,8 +345,8 @@ p {
     margin-top: 30px;
 }
 
-.sub-flat > h3 {
-    font-size: 18px;
+.sub-flat > h1 {
+    font-size: 21px;
     font-family: 'Roboto', Arial;
     font-weight: 400;
     letter-spacing: -1px;
@@ -312,7 +355,7 @@ p {
     padding-top: 4px;
 }
 
-.sub-flat > h3:after {
+.sub-flat > h1:after {
     border-bottom: 1px solid #e64430;
     content: "";
     display: block;
@@ -402,20 +445,48 @@ p {
     text-shadow: 1px 1px 1px rgba(56, 56, 56, 1);
 }
 
+.random-article-wrap {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0px;
+    flex-wrap: wrap;
+}
+
+.random-article-wrap li {
+    list-style: none;
+    width: 24%;
+    border: 1px solid #DFDFDF;
+    background-color: #f9f6f6;
+}
+
+.random-article-wrap li {
+    margin-right: 5px;
+}
+
+.random-article-wrap li:last-child:after
+{
+    margin-right: 0px;
+}
+
 .random-article {
     font-style: italic;
-    font-size: 16px;
     font-weight: 700;
     color: #484848;
+    padding: 5px;
 }
 
 .random-article:hover {
-    text-underline-color: #484848;
+    text-decoration: none;
+    color: #9f191f;
 }
 
 .random-article p {
     line-height: 117%;
     margin: 5px 0 0 0;
+    font-size: 14px !important;
+    padding: 5px;
 }
 
 .font-12 {
@@ -676,6 +747,11 @@ p {
     content: "|";
 }
 
+.footer-menu li a {
+    text-decoration: none !important;
+    color: #DFDFDF !important;
+}
+
 .site-owner {
     color: #a8a8a8;
     font-size: 11px;
@@ -719,6 +795,11 @@ hr {
 
     .sub-flat {
         margin-top: 5px;
+    }
+
+    .random-article-wrap li {
+        width: 48%;
+        margin-bottom:5px;
     }
 }
 

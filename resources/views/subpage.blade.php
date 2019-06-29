@@ -10,12 +10,17 @@
 
 @section('content')
 <div class="col-md-12 sub-flat">
-    <h3>{{ $article->art_name }}</h3>
+    <h1>{{ $article->art_name }}</h1>
     @include('social', ['url' => Request::url()])
     <div class="sub-top">
+        <div class="breadcrumb"><a href="/">Ana Sayfa</a> <i class="fa fa-angle-right"></i> <a href="/page/{{ $article->category_slug }}">{{ $article->category_name }}</a> <i class="fa fa-angle-right"></i> {{ $article->art_name }} </div>
         <img src="/uploads/images/{{ $article->art_image }}" class="img-responsive sub-head-image" alt="{{ $article->art_name }}" />
         {!! $article->art_content !!}
-
+        <div class="col-md-12">
+            @foreach($keyword as $item)
+                <div class="keyword"><a href="/tags/{{$item}}">{{ $item }}</a></div>
+            @endforeach
+        </div>
         <h3 style="color: #C4390F; font-style: italic;">Dikkatinizi Çekebilir</h3>
                 @foreach($random_article as $item)
                         <div class="col-md-4" style="margin-top: 5px;">

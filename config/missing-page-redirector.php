@@ -44,7 +44,8 @@ return [
         '/hizmetlerimiz/huzurevi-bakimevi-canli-izle.html' => '/page/doga/7-24-canli-izle-27',
         '/iletisim.html' => '/page/doga/huzurevi-iletisim-29',
         '/iletisim/is-basvuru-formu.html' => '/insan-kaynaklari',
-        '/konum-ve-iletisim.html?id=47' => '/page/doga/huzurevi-iletisim-29'
+        '/konum-ve-iletisim.html?id=47' => '/page/doga/huzurevi-iletisim-29',
+        '/page/hizmetlerimiz/yaslilar-icin-doktor-hizmetleri-16' => '/page/hizmetlerimiz/huzurevi-doktor-hizmetleri-16',
     ],
 
 ];

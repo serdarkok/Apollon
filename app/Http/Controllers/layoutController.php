@@ -21,6 +21,63 @@ use Laracasts\Flash\Flash;
 
 class layoutController extends Controller
 {
+
+    public function getBookStoreJson() {
+        return response()->json(
+            [
+                [
+                    'id'    => '1',
+                    'name'  => 'Geleneksel ve Tamamlayıcı Tıp Dergisi',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/geleneksel_ve_tamamlayici_tip.png',
+                    'page'  => '235',
+                    'authors' => 'Adam Smith, Taylor Otwell'
+                ],
+                [
+                    'id'    => '2',
+                    'name'  => 'Journal of Clinical Obstetrics & Gynecology',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/jcog.png',
+                    'page'  => '421',
+                    'authors' => 'Adam Smith, Taylor Otwell'
+                ],
+                [
+                    'id'    => '3',
+                    'name'  => 'Journal of Reconstructive Urology',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/jreconstructive_urology.png',
+                    'page'  => '188',
+                    'authors' => 'Adam Smith, Taylor Otwell'
+                ],
+                [
+                    'id'    => '4',
+                    'name'  => 'Literatür Eczacılık Bilimleri Dergisi',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/literatur_eczacilik_bilimleri.png',
+                    'page'  => '574',
+                    'authors' => 'İlkay Aydın'
+                ],
+                [
+                    'id'    => '5',
+                    'name'  => 'The World Clinics Journal of Medical Sciences',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/the_world_clinics.png',
+                    'page'  => '235',
+                    'authors' => 'Adam Smith, Taylor Otwell'
+                ],
+                [
+                    'id'    => '6',
+                    'name'  => 'Acil Tıp - Özel Konular',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/acil_tip_ozel.png',
+                    'page'  => '362',
+                    'authors' => 'Clive Gifford'
+                ],
+                [
+                    'id'    => '7',
+                    'name'  => 'Ağız Diş ve Çene Cerrahisi - Özel Konular',
+                    'cover' => 'https://turkiyeklinikleri.com/upload/cover/journals/agiz_dis_cene_cerrahisi_ozel.png',
+                    'page'  => '652',
+                    'authors' => 'U. Uraz Aydın'
+                ]
+            ]
+        );
+    }
+
     public function getHomePage(Post $post) {
         // $post->addView();
 
@@ -56,8 +113,27 @@ class layoutController extends Controller
         // return $_;
 
         return view('homepage', ['slider' => $_, 'hizmetler' => $__, 'post' => $post]);
-        // return $_;
+    }
 
+    public function getTags($tag) {
+        $tag = str_replace('-', ' ', $tag);
+        SEOMeta::setTitle($tag . ' Arama Sonuçları');
+        SEOMeta::setDescription($tag . ' Arama sonuçlarını içermektedir');
+        OpenGraph::setTitle($tag . ' Arama Sonuçları');
+        OpenGraph::setDescription($tag . ' Arama sonuçlarını içermektedir');
+        OpenGraph::setUrl(\URL::full());
+
+        $_ = Articles_con::where('art_keywords', 'like', '%'.$tag.'%')->get();
+
+        foreach ($_ as $item) {
+            $____ = Article::select('cat_id')->where('id','=',$item->art_id)->first();
+            // ,return $____;
+            $___ = Categories_con::select('category_slug')->where('cat_id', '=', $____->cat_id)->first();
+            // return $___;
+            $item['cat_name'] = $___->category_slug;
+        }
+
+        return view('tags', ['tags' => $_, 'arama' => $tag]);
     }
 
     public function getArticle($category, $article) {
@@ -66,7 +142,7 @@ class layoutController extends Controller
         preg_match('/(\d+)\D*$/', $article ,$veri);
 
         if ($veri){
-            $__ = Article::select('id', 'cat_id')->where('status', '=', '1')->inRandomOrder()->limit(3)->get();
+            $__ = Article::select('id', 'cat_id')->where('status', '=', '1')->inRandomOrder()->limit(4)->get();
 
             foreach ($__ as $item)
             {
@@ -79,7 +155,16 @@ class layoutController extends Controller
                 $item['cat_name'] = $___->category_slug;
             }
 
+            $a = Article::where('id','=', $veri[0])->first();
+            $a = Categories_con::select('category_name', 'category_slug')->where('cat_id', '=', $a->cat_id)->first();
+
             $_ = Articles_con::where('art_id', $veri[0])->first();
+
+            $_['category_slug'] = $a->category_slug;
+            $_['category_name'] = $a->category_name;
+
+            $___  = str_replace(' ', '-', $_->art_keywords);
+            $keyword = explode(',', $___);
 
             SEOMeta::setTitle($_->art_name);
             SEOMeta::setDescription($_->art_description);
@@ -90,12 +175,44 @@ class layoutController extends Controller
             OpenGraph::setUrl(\URL::full());
             OpenGraph::setType('website');
 
-            return view('subpage', ['article' => $_, 'random_article' => $__ ]);
+            return view('subpage', ['article' => $_, 'random_article' => $__, 'keyword' => $keyword ]);
         }
         else
         {
             return abort(404);
         }
+    }
+
+    public function getCategory($category) {
+        if ($category) {
+
+            $_ = Categories_con::select('cat_id', 'category_name')->where('category_slug', '=', $category)->first();
+
+            SEOMeta::setTitle($_->category_name);
+            SEOMeta::setDescription('Bu kısımda huzurevi ve bakımevi sitesind yer alan kategorilerdeki yazılar gösterilmektedir..');
+            OpenGraph::setTitle($_->category_name);
+            SEOMeta::addKeyword('doga, istanbul, huzurevi, blog, kategoriler, bakimevi');
+            OpenGraph::setDescription('Bu kısımda huzurevi ve bakımevi sitesind yer alan kategorilerdeki yazılar gösterilmektedir..');
+            OpenGraph::setUrl(\URL::full());
+
+            $al = [];
+
+            if ($_) {
+                $__ = Article::where('cat_id', '=', $_->cat_id)->where('status', '=', '1')->get();
+            }
+
+            if ($__) {
+                foreach ($__ as $item) {
+                    $al[] += $item->id;
+                }
+            }
+            // $ids_ordered = implode(',', $al);
+
+            $_ = Articles_con::whereIn('art_id', $al)->get();
+        }
+
+        return view('category', ['items' => $_, 'category_name' => $category]);
+
     }
 
     public function getUlasimFormu() {
