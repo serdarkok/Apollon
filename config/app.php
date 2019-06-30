@@ -185,7 +185,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
-        // CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        // Spatie\LinkChecker\LinkCheckerServiceProvider::class,
     ],
 
     /*

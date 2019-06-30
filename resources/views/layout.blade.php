@@ -80,7 +80,7 @@
                     <li class="pushy-link"><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi-26">Dragos Hatice Satoğlu Yaşam Evi</a>
                 </ul>
             </li>
-            <li class="pushy-link"><a href="/page/doga/under-construction">GALERİ</a></li>
+            {{-- <li class="pushy-link"><a href="/page/doga/under-construction">GALERİ</a></li> --}}
             <li class="pushy-link"><a href="/page/doga/huzurevi-iletisim-29">İLETİŞİM</a></li>
         </ul>
     </div>
@@ -149,7 +149,7 @@
                                     <li><a href="/page/subelerimiz/dragos-hatice-satoglu-yasam-evi-26">Dragos Hatice Satoğlu Yaşam Evi</a>
                                 </ul>
                             </li>
-                            <li><a href="/page/doga/under-construction">GALERİ</a></li>
+                            {{-- <li><a href="/page/doga/under-construction">GALERİ</a></li> --}}
                             <li><a href="/page/doga/huzurevi-iletisim-29">İLETİŞİM</a></li>
                         </ul>
                     </nav>

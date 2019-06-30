@@ -21,7 +21,7 @@ CKEDITOR.plugins.add( 'anahtar',
 				      cevir = cevir.replace(/\u015f/g, 's'); // ş
 				      cevir = cevir.replace(/\u00d6/g, 'O'); // Ö
 				      cevir = cevir.replace(/\u00f6/g, 'o'); // ö
-				      cevir = cevir.replace(/\u00dc/g, 'U'); // Ü
+				      cevir = cevir.replace(/\u00dc/g, 'U'); //Ü
 				      cevir = cevir.replace(/\u00fc/g, 'u'); // ü
 				      
 				      return cevir;   
