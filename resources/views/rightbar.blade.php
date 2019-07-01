@@ -62,9 +62,9 @@
             <ul class="links">
                 <li><a href="https://www.saglik.gov.tr" target="_blank">Sağlık Bakanlığı</a></li>
                 <li><a href="https://istanbul.aile.gov.tr/" target="_blank">İstanbul Aile ve Sosyal Politikalar İl Müdürlüğü</a></li>
-                <li> <a href="https://istanbul.aile.gov.tr/" target="_blank">Aile ve Sosyal Politikalar Bakanlığı</a></li>
+                <li> <a href="https://www.aile.gov.tr/" target="_blank">Aile ve Sosyal Politikalar Bakanlığı</a></li>
                 <li><a href="https://www.hastane.com.tr/istanbul-hastaneleri.html" target="_blank">İstanbul Hastaneleri</a></li>
-                <li><a href="https://www.istanbuleczaciodasi.org.tr/nobetci-eczane/" target="_blank">Nöbetçi Eczaneler</a></li>
+                <li><a href="https://apps.istanbulsaglik.gov.tr/Eczane" target="_blank">Nöbetçi Eczaneler</a></li>
             </ul>
         </div>
     </div>
